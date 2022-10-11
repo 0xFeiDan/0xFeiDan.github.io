@@ -4,9 +4,34 @@
   
     
     <entry>
+      <title>AltLayer是伪需求还是独角兽</title>
+      <link href="/2022/10/11/AltLayer%E6%98%AF%E4%BC%AA%E9%9C%80%E6%B1%82%E8%BF%98%E6%98%AF%E7%8B%AC%E8%A7%92%E5%85%BD/"/>
+      <url>/2022/10/11/AltLayer%E6%98%AF%E4%BC%AA%E9%9C%80%E6%B1%82%E8%BF%98%E6%98%AF%E7%8B%AC%E8%A7%92%E5%85%BD/</url>
+      
+        <content type="html"><![CDATA[<h1 id="AltLayer是伪需求还是独角兽"><a href="#AltLayer是伪需求还是独角兽" class="headerlink" title="AltLayer是伪需求还是独角兽"></a>AltLayer是伪需求还是独角兽</h1><h1 id="创始人"><a href="#创始人" class="headerlink" title="创始人"></a>创始人</h1><p><img src="https://miro.medium.com/max/418/1*HwdiUiqbVaoqQRhPwqvALQ.png" alt="img"></p><p><a href="http://jiayaoqi.com/">http://jiayaoqi.com/</a></p><p>AltLayer项目由Parity Asia前总监、Polkadot亚洲技术总监、Zilliqa联合创始人&#x2F;CTO Dr.Yaoqi Jia领导。该团队由区块链资深人士和研究人员组成，他们都曾在Parity、Zilliqa和Synthetix工作。关于创始人的背景，在2022年之前，他还是在Parity Asia任职总经理，为他进入Web3提供了很好的资源，由此看来，Alt Research（AltLayer的开发团队）是一个很年轻的团队。</p><p>Yaoqi曾在2019年入选福布斯30以下亚洲30强榜单，他曾参与过东南亚的加密货币交易所等项目。</p><p>在2018年以前，他是新加坡国立大学的研究员，拥有计算机博士学位。他的介绍中说：他的研究兴趣涵盖区块链安全、分布式系统安全、网络安全&#x2F;隐私和网络安全等领域。他已经从网络和系统两个角度提出了保护网络基础设施的解决方案，例如，解决网络覆盖中的隐私&#x2F;共识问题以及识别网络浏览器中的新攻击&#x2F;漏洞。与此同时，Yaoqi的研究工作已发表在 CCS、USENIX Security、PETS、RAID、ESORICS 等。获得了 W2SP (2014) 和 ICCCS (2014) 的最佳论文奖。他的工作得到了包括谷歌和苹果在内的多家供应商的认可（Chrome 为 CVE-2014–7948，Safari 为 CVE-2015–5907），并受到了 Dailydot、Gizmodo 和 Techspot 等媒体的关注。</p><h1 id="AltLayer"><a href="#AltLayer" class="headerlink" title="AltLayer"></a><strong>AltLayer</strong></h1><p><img src="https://miro.medium.com/max/700/1*3L6SZ0Xai-IY8RryJs2-NA.jpeg" alt="img"></p><p>AltLayer从该领域一些最聪明的 VC 和天使那里筹集了 720 万美元。本轮融资由 Polychain Capital、Jump Crypto 和 Breyer Capital 牵头。前 Coinbase 首席技术官和 a16z GP Balaji Srinivasan，Circle 联合创始人兼 USDC 架构师 Sean Neville，以太坊联合创始人兼 Parity Technologies 首席执行官 Gavin Wood，Messari 创始人 Ryan Selkis，Synthetix 联合创始人 Kain Warwick 和 Jordan Momtazi（Bodhi Ventures），前 Polychain GP Tekin Salimi (DAO5) 等也以天使身份投资。</p><p><img src="https://miro.medium.com/max/700/1*uN9H-vIK1F1wP2UtNfgkrw.png" alt="img"></p><p>对比一下AltLayer与其他L2解决方案的优势</p><h2 id="1-高吞吐量"><a href="#1-高吞吐量" class="headerlink" title="1.高吞吐量"></a>1.高吞吐量</h2><p>AltLayer 20,000 TPS (For 10 layers)，在区块链里 TPS 指的就是一个区块链系统里每秒可以处理多少笔交易，吞吐量是区块链系统的一个重要技术指标，就像我们常把带宽作为 2&#x2F;3&#x2F;4&#x2F;5G 通信技术的指标一样。简单来说，高 TPS 对于公有链的意义就是路变得更宽了”。大家都知道路越宽车开得越舒服，也越不容易堵车，区块链也是同样的道理。</p><h2 id="2-低的交易费用"><a href="#2-低的交易费用" class="headerlink" title="2.低的交易费用"></a>2.低的交易费用</h2><p>在区块链中，你向另一个账户转账时需要支付一定的费用。</p><h2 id="3-闪电层"><a href="#3-闪电层" class="headerlink" title="3.闪电层"></a>3.闪电层</h2><p>在其核心，AltLayer 是一个由多个类似于optimistic rollup的执行层（称为flash layers 闪电层）组成的系统。</p><p>Altlayer的思路就像是把Rollup的方案当做云计算资源一样来使用，Rollup方案只有在DApp预计有相当大的访问需求，且一层网络无法处理时才会被调用。一旦需求逐渐减少，DApp就可以移回一层网络。</p><p>这种高度弹性的方案使得整个系统的资源得到了高度优化。至此，我们不妨把Altlayer要做的事情称为“Rollup as Service”。</p><p>具体来看，其应对方式如下：</p><p>1.快速启动一个由一层网络（如以太坊）保证安全性的Rollup解决方案。</p><p>2.合理利用Rollup解决方案，从而防止一层网络的空间堵塞。</p><p>3.通过在一层网络进行 “end-of-life ”的结算程序来结束Rollup解决方案的调用。</p><p>点击<a href="https://www.ethereum.cn/an-incomplete-guide-to-rollups">Rollup</a>了解更多知识</p><p>点击了解更多<a href="https://link.medium.com/suq3z2DVCrb">AltLayer应用案例</a></p><h2 id="4-多链"><a href="#4-多链" class="headerlink" title="4.多链"></a>4.多链</h2><p>AltLayer允许被部署在多条区块链上。</p><h2 id="5-去中心化"><a href="#5-去中心化" class="headerlink" title="5.去中心化"></a>5.去中心化</h2><p>在一个分布有众多节点的系统中，每个节点都具有高度自治的特征。节点之间彼此可以自由连接，形成新的连接单元。任何一个节点都可能成为阶段性的中心，但不具备强制性的中心控制功能。节点与节点之间的影响，会通过网络而形成非线性因果关系。这种开放式、扁平化、平等性的系统现象或结构，我们称之为去中心化。</p><p>随着主体对客体的相互作用的深入和认知机能的不断平衡、认知结构的不断完善，个体能从自我中心状态中解除出来，称之为去中心化。</p><h2 id="6-EVM，WASM"><a href="#6-EVM，WASM" class="headerlink" title="6.EVM，WASM"></a>6.EVM，WASM</h2><p>EVM支持solidity开发。</p><p>WASM<strong>支持 Rust 和 C++ 的开发</strong>。</p><h2 id="7-MEV"><a href="#7-MEV" class="headerlink" title="7.MEV"></a>7.MEV</h2><p>简而言之就是矿工对其所在区块的一切交易的顺序有控制权，能够随意控制交易的顺序，并以此来进行获取利益。例如夹子机器人</p><h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>关于“二层是伪需求”每个人都有自己的看法，但无可否认的事实是越来越多有条件的项目都在往二层迁移，从Sandbox到Yuga Labs，都在试图用发展二层网络的方式来解决扩展问题。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AltLayer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AltLayer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>合作伙伴研究：Squid 是每个人的跨链流动性</title>
-      <link href="/2022/10/11/my-first-blog/"/>
-      <url>/2022/10/11/my-first-blog/</url>
+      <link href="/2022/10/11/%E5%90%88%E4%BD%9C%E4%BC%99%E4%BC%B4%E7%A0%94%E7%A9%B6%EF%BC%9ASquid%20%E6%98%AF%E6%AF%8F%E4%B8%AA%E4%BA%BA%E7%9A%84%E8%B7%A8%E9%93%BE%E6%B5%81%E5%8A%A8%E6%80%A7/"/>
+      <url>/2022/10/11/%E5%90%88%E4%BD%9C%E4%BC%99%E4%BC%B4%E7%A0%94%E7%A9%B6%EF%BC%9ASquid%20%E6%98%AF%E6%AF%8F%E4%B8%AA%E4%BA%BA%E7%9A%84%E8%B7%A8%E9%93%BE%E6%B5%81%E5%8A%A8%E6%80%A7/</url>
       
         <content type="html"><![CDATA[<blockquote><p>Squid 是一种协议，可通过单个 Javascript 软件开发工具包 (SDK) 实现跨链流动性路由和交换。</p></blockquote><p>在开发了自己的 Web3 应用程序之后，从应用程序到共识级别，Squid 的创始人对构建可互操作的 Web3 应用程序的障碍和痛点有第一手的经验。这种经历激发了他们构建<a href="https://0xsquid.com/">Squid</a>的使命，即让开发人员尽可能轻松地利用跨链流动性。</p><h1 id="什么是-Squid-协议以及它如何实现跨链流动性？"><a href="#什么是-Squid-协议以及它如何实现跨链流动性？" class="headerlink" title="什么是 Squid 协议以及它如何实现跨链流动性？"></a>什么是 Squid 协议以及它如何实现跨链流动性？</h1><p>Squid 正在为开发人员和用户提供跨链的未来。对于开发人员而言，Squid 是一种协议，可通过单个 Javascript 软件开发工具包 (SDK) 实现跨链流动性路由和交换。通过将用户连接到 Web3 中任何位置的 dex 上的流动性池，此路由允许在所有受支持的链上交换任何代币。SDK 通过获取返回令牌传输<a href="https://docs.0xsquid.com/get-started/get-a-route">详细信息</a>和执行成本的路由来工作。然后，开发人员可以使用所需的签名者和路由执行传输。</p><p><img src="https://miro.medium.com/max/700/0*6x0JrpIK3scD2bdS.png" alt="img"></p><p>Squid 使用<a href="https://docs.axelar.dev/dev/gmp-overview">Axelar 的通用消息传递</a>功能来实现跨多个链的智能合约调用。使用Squid<a href="https://docs.0xsquid.com/get-started/set-your-transfer-parameters/multicall-wip">的多调用特性</a>，应用程序可以依次调用多个合约。用例可能包括使用另一个链上的 dex 交换令牌，然后在另一个 dApp 中使用获得的令牌。此功能提供了跨链流动性，并为用户和开发人员节省了时间，因为第二笔交易不需要签名。</p><p>这对用户意味着一键交易。他们不需要下载多个钱包来签署跨不同链的交易。用户可以从任何市场购买 NFT，在另一条链上玩游戏或使用多链 DeFi 协议进行交易，无需任何额外步骤。Squid 使 dApp 能够使用 Axelar 网络提供的安全性来获取跨链流动性并提供这种体验。</p><h1 id="0xSquid-安全"><a href="#0xSquid-安全" class="headerlink" title="0xSquid + 安全"></a>0xSquid + 安全</h1><p>让开发人员更容易为其应用程序添加跨链流动性并非没有挑战。每当从事任何跨链解决方案时，安全性都是重中之重。任何错误或漏洞都可能导致用户资金损失和协议可信度损失。</p><p>在研究了不同的解决方案后，Squid 的团队对 Axelar 网络提供的安全性充满信心。Squid 和 Axelar 采用“最小表面积”的安全方法。这意味着使用的智能合约仅执行路由流动性的逻辑，但本身并不持有流动性。</p><p>Squid 执行的交换仅通过受信任的自动货币制造商 (AMM) 执行，并且不会引入新的交换合约。路由是 Squid 的唯一关注点。Squid 合约和 SDK 完成了管理跨链逻辑的所有工作，确保一致地应用安全标准并最大限度地减少人为错误的表面积。</p><p>除了使用 Axelar 提供的权益证明验证器集之外，Squid 还对<a href="https://ackeeblockchain.com/">Ackee Blockchain的</a><a href="https://docs.0xsquid.com/welcome-to-gitbook/the-basics/security-and-audits">合同</a>进行了审计，并正在接受 Consensys Diligence 的第二次审计，以增加一层安全性。</p><h1 id="构建Squid"><a href="#构建Squid" class="headerlink" title="构建Squid"></a>构建Squid</h1><p><img src="https://miro.medium.com/max/700/0*ra7anvCzISSEk6lz.png" alt="img"></p><p>构建跨链协议需要测试。在每个参与链的主网上进行测试不仅成本高昂，而且违背了所有最佳实践。为了为 Squid 建立一个真实的测试环境，该团队需要分叉 6 条不同链的主网以及 Axelar 的本地实例。</p><p>对于他们可用的工具，这几乎是不可能的。在 Axelar 团队的帮助下，<a href="https://github.com/axelarnetwork/axelar-local-dev">Axelar Local Development</a>诞生了。Axelar-Local-Dev 创建 Axelar 网关的本地实例，并允许开发人员在受支持链的主网分叉上创建合约并在它们之间传递消息。这将创建一个本地环境来正确测试使用 Axelar 的任何跨链应用程序。</p><p>Axelar Local Development 让 Squid 的团队可以完全控制他们的开发环境。构建项目所需的合约和 API 的迭代时间和成本显着降低。现在团队可以模拟和理解其他主网应用程序与 Squid 交互的行为。</p><h1 id="监控Squid"><a href="#监控Squid" class="headerlink" title="监控Squid"></a>监控Squid</h1><p>在多条链上工作时，能够监控跨链的交易至关重要。这使开发人员能够了解协议的整体健康状况和网络中的瓶颈。对于 Squid 的团队来说，监控对于他们的协议开发和集成它的开发人员都很重要。</p><p>Axelarscan区块浏览器提供了一个用户界面和 API，已被证明是 Squid 团队工具集中非常有用的一部分。<a href="https://axelarscan.io/">Axelarscan</a> 允许用户查看 Axelar 网络的整体活动以及特定交易和链的信息。来源、目的地、资产和当前状态等交易详情可在<a href="https://axelarscan.io/transfers">Transfers Explorer</a>中找到。</p><h1 id="Squid的下一步是什么"><a href="#Squid的下一步是什么" class="headerlink" title="Squid的下一步是什么"></a>Squid的下一步是什么</h1><p>Squid 的一个主要目标是即时执行跨链交易。他们目前正在与 Axelar 的团队合作开发 Axelar Gateway 的新实施，以实现这一目标。在撰写本文时，跨链交易总是会增加延迟。至少，必须尊重源、桥接协议和目标链的确认时间。这导致需要<a href="https://axelar.network/blog/how-to-build-a-cross-chain-dapp-interop-architecture-101">跨链架构的新方法</a>。但是，在源链上提供证明后，正在开发使跨链交易能够立即在目标链上执行。这种级别的交易时间将为跨链应用带来新的能力。</p><p>Squid 的推出将成为 Axelar 生态系统的加速器，因为跨链流动性的采购变得像一个简单的 API 调用一样简单。开发人员将能够在 Axelar 上轻松构建更复杂的应用程序并跨链扩展 Web3。</p><p>如果您有兴趣帮助更多的开发人员在 EVM 链和 Cosmos 之间构建跨链应用程序，<a href="https://0xsquid.notion.site/Squid-Jobs-Board-193b7674b2be49c29d5bfe7907808090">Squid 团队正在招聘</a>！</p><p>有关 Squid 的更多信息和更新，请在<a href="https://twitter.com/0xsquid_">Twitter 上</a>关注他们并加入<a href="https://discord.com/invite/vrJE79aWm6">Discord</a></p>]]></content>
       
@@ -20,7 +45,7 @@
       
         <tags>
             
-            <tag> axelar </tag>
+            <tag> Axelar </tag>
             
         </tags>
       
