@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>函数类型 | FeiDan</title>
+  <title>变量数据储存和作用域 | FeiDan</title>
   <meta name="keywords" content=" Solidity ">
-  <meta name="description" content="函数类型 | FeiDan">
+  <meta name="description" content="变量数据储存和作用域 | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:type" content="website">
@@ -391,9 +391,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-函数类型" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-变量数据储存和作用域" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">函数类型</h1>
+        <h1 class="article-title">变量数据储存和作用域</h1>
     
     <div class="article-meta">
         
@@ -418,12 +418,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-15 14:41:01'>2022-10-15 14:04</time>
+            发布时间 : <time class="date" title='最后更新: 2022-10-16 16:02:08'>2022-10-16 15:43</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1k</span>
+        <span>字数:1.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -442,7 +442,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#solidity%E4%B8%AD%E5%87%BD%E6%95%B0%E7%9A%84%E5%BD%A2%E5%BC%8F%EF%BC%9A"><span class="toc-text">solidity中函数的形式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B0%E5%BA%95%E4%BB%80%E4%B9%88%E6%98%AFPure%E5%92%8CView%EF%BC%9F"><span class="toc-text">到底什么是Pure和View？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-pure-v-s-view"><span class="toc-text">1. pure v.s  view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-internal-v-s-external"><span class="toc-text">2. internal v.s. external</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-payable"><span class="toc-text">3. payable</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BD%8D%E7%BD%AE"><span class="toc-text">数据位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BD%8D%E7%BD%AE%E5%92%8C%E8%B5%8B%E5%80%BC%E8%A7%84%E5%88%99"><span class="toc-text">数据位置和赋值规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">变量的作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8A%B6%E6%80%81%E5%8F%98%E9%87%8F"><span class="toc-text">1. 状态变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="toc-text">2. 局部变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text">3. 全局变量</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -458,126 +458,126 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="solidity中函数的形式："><a href="#solidity中函数的形式：" class="headerlink" title="solidity中函数的形式："></a><strong>solidity中函数的形式：</strong></h3><pre><code class="solidity">    function &lt;function name&gt; (&lt;parameter types&gt;) &#123;internal|external|public|private&#125; [pure|view|payable] [returns (&lt;return types&gt;)]
-</code></pre>
+        <h2 id="数据位置"><a href="#数据位置" class="headerlink" title="数据位置"></a>数据位置</h2><p><strong>solidity数据存储位置有三类：<code>storage</code>，<code>memory</code>和<code>calldata</code>。</strong></p>
+<p><strong>不同存储位置的<code>gas</code>成本不同。</strong></p>
+<p><strong><code>storage</code>类型的数据存在链上，类似计算机的硬盘，消耗<code>gas</code>多；<code>memory</code>和<code>calldata</code>类型的临时存在内存里，消耗<code>gas</code>少。大致用法：</strong></p>
 <ol>
-<li><p><strong><code>function</code>：声明函数时的固定用法，想写函数，就要以function关键字开头。</strong></p>
+<li><strong><code>storage</code>：合约里的状态变量默认都是<code>storage</code>，存储在链上。</strong></li>
+<li><strong><code>memory</code>：函数里的参数和临时变量一般用<code>memory</code>，存储在内存中，不上链。</strong></li>
+<li><strong><code>calldata</code>：和<code>memory</code>类似，存储在内存中，不上链。与<code>memory</code>的不同点在于<code>calldata</code>变量不能修改（<code>immutable</code>），一般用于函数的参数。例子：</strong></li>
+</ol>
+<pre><code class="solidity">// SPDX-License-Identifier: MIT
+
+//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
+pragma solidity ^0.8.4; 
+
+contract HelloWeb3&#123;
+        
+
+    function fCalldata(uint[] calldata _x) public pure returns(uint[] calldata)&#123;
+        //参数为calldata数组，不能被修改
+        // _x[0] = 0 //这样修改会报错
+        return(_x);
+    &#125;
+    
+&#125;
+</code></pre>
+<p><img src="https://wtf.academy/assets/images/5-1-9d00a21842c77b3911aaf419f67ad691.png" alt="5-1.png"></p>
+<h3 id="数据位置和赋值规则"><a href="#数据位置和赋值规则" class="headerlink" title="数据位置和赋值规则"></a>数据位置和赋值规则</h3><p><strong>在不同存储类型相互赋值时候，有时会产生独立的副本（修改新变量不会影响原变量），有时会产生引用（修改新变量会影响原变量）。规则如下：</strong></p>
+<ol>
+<li><strong><code>storage</code>（合约的状态变量）赋值给本地<code>storage</code>（函数里的）时候，会创建引用，改变新变量会影响原变量。例子：</strong></li>
+</ol>
+<pre><code class="solidity">// SPDX-License-Identifier: MIT
+
+//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
+pragma solidity ^0.8.4; 
+
+contract HelloWeb3&#123;
+
+    uint[] x = [1,2,3]; // 状态变量：数组 x
+
+    function fStorage() public&#123;
+        //声明一个storage的变量 xStorage，指向x。修改xStorage也会影响x
+        uint[] storage xStorage = x;
+        xStorage[0] = 100;
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://wtf.academy/assets/images/5-2-91bae5b0b86b0e55210cac541a6edee5.png" alt="5-2.png"></p>
+<ol start="2">
+<li><p><code>**storage</code>赋值给<code>memory</code>，会创建独立的复本，修改其中一个不会影响另一个；**</p>
+<pre><code class="solidity">// SPDX-License-Identifier: MIT
+
+//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
+pragma solidity ^0.8.4; 
+
+contract HelloWeb3&#123;
+        
+
+    uint[] x = [1,2,3]; // 状态变量：数组 x
+    
+    function fMemory() public view&#123;
+        //声明一个Memory的变量xMemory，复制x。修改xMemory不会影响x
+        uint[] memory xMemory = x;
+        xMemory[0] = 100;
+        xMemory[1] = 200;
+        uint[] memory xMemory2 = x;
+        xMemory2[0] = 300;
+    &#125;
+&#125;
+</code></pre>
 </li>
-<li><p><strong><code>&lt;function name&gt;</code>：函数名</strong></p>
-</li>
-<li><p><strong><code>(&lt;parameter types&gt;)</code>：函数的参数，也就是要输入到函数的变量类型和名字。</strong></p>
-</li>
-<li><p><strong><code>&#123;internal|external|public|private&#125;</code>：函数可见性说明符，一共4种。没标明函数类型的，默认<code>internal</code>。</strong></p>
+</ol>
+<p><strong><img src="https://wtf.academy/assets/images/5-3-979f3cbffbbe20ff5df5c143384610e4.png" alt="5-3.png"></strong></p>
+<ol start="3">
+<li><strong><code>memory</code>赋值给<code>memory</code>，会创建引用，改变新变量会影响原变量。</strong></li>
+<li><strong>其他情况，变量赋值给<code>storage</code>，会创建独立的复本，修改其中一个不会影响另一个。</strong></li>
+</ol>
+<h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p><strong><code>Solidity</code>中变量按作用域划分有三种，分别是状态变量（state variable），局部变量（local variable）和全局变量(global variable)</strong></p>
+<h3 id="1-状态变量"><a href="#1-状态变量" class="headerlink" title="1. 状态变量"></a><strong>1. 状态变量</strong></h3><p><strong>状态变量是数据存储在链上的变量，所有合约内函数都可以访问 ，<code>gas</code>消耗高。状态变量在合约内、函数外声明：</strong></p>
+<pre><code class="solidity">contract Variables &#123;
+    uint public x = 1;
+    uint public y;
+    string public z;
+</code></pre>
+<p><strong>我们可以在函数里更改状态变量的值：</strong></p>
+<pre><code class="solidity">    function foo() external&#123;
+        // 可以在函数里更改状态变量的值
+        x = 5;
+        y = 2;
+        z = &quot;0xAA&quot;;
+    &#125;
+</code></pre>
+<h3 id="2-局部变量"><a href="#2-局部变量" class="headerlink" title="2. 局部变量"></a><strong>2. 局部变量</strong></h3><p><strong>局部变量是仅在函数执行过程中有效的变量，函数退出后，变量无效。局部变量的数据存储在内存里，不上链，<code>gas</code>低。局部变量在函数内声明：</strong></p>
+<pre><code class="solidity">    function bar() external pure returns(uint)&#123;
+        uint xx = 1;
+        uint yy = 3;
+        uint zz = xx + yy;
+        return(zz);
+    &#125;
+</code></pre>
+<h3 id="3-全局变量"><a href="#3-全局变量" class="headerlink" title="3. 全局变量"></a><strong>3. 全局变量</strong></h3><p><strong>全局变量是全局范围工作的变量，都是<code>solidity</code>预留关键字。他们可以在函数内不声明直接使用：</strong></p>
+<pre><code class="solidity">    function global() external view returns(address, uint, bytes memory)&#123;
+        address sender = msg.sender;
+        uint blockNum = block.number;
+        bytes memory data = msg.data;
+        return(sender, blockNum, data);
+    &#125;
+</code></pre>
+<p><strong>在上面例子里，我们使用了3个常用的全局变量：<code>msg.sender</code>, <code>block.number</code>和<code>msg.data</code>，他们分别代表请求发起地址，当前区块高度，和请求数据。下面是一些常用的全局变量，更完整的列表请看这个<a target="_blank" rel="noopener" href="https://learnblockchain.cn/docs/solidity/units-and-global-variables.html#special-variables-and-functions">链接</a>：</strong></p>
 <ul>
-<li><p><strong><code>public</code>: 内部外部均可见。(也可用于修饰状态变量，public变量会自动生成 <code>getter</code>函数，用于查询数值).</strong></p>
-</li>
-<li><p><strong><code>private</code>: 只能从本合约内部访问，继承的合约也不能用（也可用于修饰状态变量）。</strong></p>
-</li>
-<li><p><strong><code>external</code>: 只能从合约外部访问（但是可以用<code>this.f()</code>来调用，<code>f</code>是函数名）</strong></p>
-</li>
-<li><p><strong><code>internal</code>: 只能从合约内部访问，继承的合约可以用（也可用于修饰状态变量）。</strong></p>
-</li>
+<li><strong><code>blockhash(uint blockNumber)</code>: (<code>bytes32</code>)给定区块的哈希值 – 只适用于256最近区块, 不包含当前区块。</strong></li>
+<li><strong><code>block.coinbase</code>: (<code>address payable</code>) 当前区块矿工的地址</strong></li>
+<li><strong><code>block.gaslimit</code>: (<code>uint</code>) 当前区块的gaslimit</strong></li>
+<li><strong><code>block.number</code>: (<code>uint</code>) 当前区块的number</strong></li>
+<li><strong><code>block.timestamp</code>: (<code>uint</code>) 当前区块的时间戳，为unix纪元以来的秒</strong></li>
+<li><strong><code>gasleft()</code>: (<code>uint256</code>) 剩余 gas</strong></li>
+<li><strong><code>msg.data</code>: (<code>bytes calldata</code>) 完整call data</strong></li>
+<li><strong><code>msg.sender</code>: (<code>address payable</code>) 消息发送者 (当前 caller)</strong></li>
+<li><strong><code>msg.sig</code>: (<code>bytes4</code>) calldata的前四个字节 (function identifier)</strong></li>
+<li><strong><code>msg.value</code>: (<code>uint</code>) 当前交易发送的<code>wei</code>值</strong></li>
 </ul>
-</li>
-<li><p><strong><code>[pure|view|payable]</code>：决定函数权限&#x2F;功能的关键字。<code>payable</code>（可支付的）很好理解，带着它的函数，运行的时候可以给合约转入<code>ETH</code>。<code>pure</code>和<code>view</code>的介绍见下一节。</strong></p>
-</li>
-<li><p><strong><code>[returns ()]</code>：函数返回的变量类型和名称。</strong></p>
-</li>
-</ol>
-<h3 id="到底什么是Pure和View？"><a href="#到底什么是Pure和View？" class="headerlink" title="到底什么是Pure和View？"></a>到底什么是<code>Pure</code>和<code>View</code>？</h3><p><strong><code>pure</code>跟<code>view</code>关键字的函数是不改&#x2F;写链上状态的，因此用户直接调用他们是不需要付gas的（合约中非<code>pure</code>&#x2F;<code>view</code>函数调用它们则会改写链上状态，需要付gas）。</strong></p>
-<ol>
-<li><p><strong>包含<code>pure</code>关键字的函数，不能读取也不能写入存储在链上的状态变量。</strong></p>
-</li>
-<li><p><strong>包含<code>view</code>关键字的函数，能读取但也不能写入状态变量。</strong></p>
-</li>
-<li><p><strong>不写<code>pure</code>也不写<code>view</code>，函数既可以读取也可以写入状态变量。</strong></p>
-</li>
-</ol>
-<p><strong>在以太坊中，以下语句被视为修改链上状态：</strong></p>
-<blockquote>
-<p><strong>写入状态变量。</strong></p>
-<p><strong>释放事件。</strong></p>
-<p><strong>创建其他合同。</strong></p>
-<p><strong>使用selfdestruct.</strong></p>
-<p><strong>通过调用发送以太币。</strong></p>
-<p><strong>调用任何未标记view或pure的函数。</strong></p>
-<p><strong>使用低级调用（low-level calls）。</strong></p>
-<p><strong>使用包含某些操作码的内联汇编。</strong></p>
-</blockquote>
-<p><strong>以下被认为是从状态中读取：</strong></p>
-<blockquote>
-<ol>
-<li><strong>读取状态变量。</strong></li>
-<li><strong>访问 <code>this.balance</code> 或者 <code>&lt;address&gt;.balance</code>。</strong></li>
-<li><strong>访问 <code>block</code>，<code>tx</code>， <code>msg</code> 中任意成员 （除 <code>msg.sig</code> 和 <code>msg.data</code> 之外）。</strong></li>
-<li><strong>调用任何未标记为 <code>pure</code> 的函数。</strong></li>
-<li><strong>使用包含某些操作码的内联汇编。</strong></li>
-</ol>
-</blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="1-pure-v-s-view"><a href="#1-pure-v-s-view" class="headerlink" title="1. pure v.s  view"></a>1. pure v.s  view</h3><pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract HelloWeb3&#123;
-    
-    uint256 public number = 5;
-    
-    //定义add函数 external是可以从合约外部调用此函数 
-
-    function add() external&#123;
-        number = number + 1;
-    &#125;
-    //pure 不能读取也不能写入存储在链上的状态变量number
-    //那pure函数能做些什么？举个例子，你可以给函数传递一个参数 _number，然后让他返回 _number+1。
-    function addPure(uint256 _number) external pure returns(uint256 new_number)&#123;
-        new_number = _number+1;
-    &#125;
-    //view 能读取，但不能够改写状态变量number
-    //可以稍微改写下方程，让他不改写number，而是返回一个新的变量。
-    function addView() external view returns(uint256 new_number) &#123;
-        new_number = number + 1;
-    &#125;
-&#125;
-</code></pre>
-<h3 id="2-internal-v-s-external"><a href="#2-internal-v-s-external" class="headerlink" title="2. internal v.s. external"></a>2. internal v.s. external</h3><pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract Web3&#123;
-
-    uint256 public number = 5;
-
-     // internal: 内部
-    function minus() internal &#123;
-        number = number - 1;
-    &#125;
-
-    // 合约内的函数可以调用内部函数
-    function minusCall() external &#123;
-        minus();
-    &#125;
-&#125;
-</code></pre>
-<h3 id="3-payable"><a href="#3-payable" class="headerlink" title="3. payable"></a>3. payable</h3><pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract HelloWeb3&#123;
-
-    // payable: 递钱，能给合约支付eth的函数
-    function minusPayable() external payable returns(uint256 balance) &#123;
-        balance = address(this).balance;
-    &#125;
-&#125;
-</code></pre>
-<p><strong>this关键字可以让我们引用合约地址</strong></p>
-<p><img src="https://images.mirror-media.xyz/publication-images/ETDPN8myq7jFfAL8CUAFt.png?height=148&width=588" alt="img"></p>
-<p><strong>我们可以在返回的信息中看到，合约的余额是1 ETH。</strong></p>
-<p><img src="https://images.mirror-media.xyz/publication-images/nGZ2pz0MvzgXuKrENJPYf.png?height=128&width=1130" alt="img"></p>
-<p><strong>Example:</strong> <img src="https://wtf.academy/assets/images/3-2-e1be980c21311dc80f6233dac763fd89.png" alt="3-2.png"></p>
+<p><strong>Example: <img src="https://wtf.academy/assets/images/5-4-5ee425310e1666a20575f2a8330c55cb.png" alt="5-4.png"></strong></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
