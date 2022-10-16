@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>合作伙伴研究：Squid 是每个人的跨链流动性 | FeiDan</title>
-  <meta name="keywords" content=" Axelar ">
-  <meta name="description" content="合作伙伴研究：Squid 是每个人的跨链流动性 | FeiDan">
+  <title>函数输出 | FeiDan</title>
+  <meta name="keywords" content=" Solidity ">
+  <meta name="description" content="函数输出 | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:type" content="website">
@@ -382,9 +382,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-合作伙伴研究：Squid 是每个人的跨链流动性" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-函数输出" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">合作伙伴研究：Squid 是每个人的跨链流动性</h1>
+        <h1 class="article-title">函数输出</h1>
     
     <div class="article-meta">
         
@@ -394,7 +394,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Axelar">Axelar</a>
+            <a  data-rel="Solidity">Solidity</a>
             
         </span>
         
@@ -402,19 +402,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">Axelar</a>
+            <a class="color4">Solidity</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-14 22:59:50'>2022-10-11 12:14</time>
+            发布时间 : <time class="date" title='最后更新: 2022-10-16 13:30:08'>2022-10-16 13:10</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.5k</span>
+        <span>字数:403</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -433,7 +433,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Squid-%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E5%AE%83%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E8%B7%A8%E9%93%BE%E6%B5%81%E5%8A%A8%E6%80%A7%EF%BC%9F"><span class="toc-text">什么是 Squid 协议以及它如何实现跨链流动性？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0xSquid-%E5%AE%89%E5%85%A8"><span class="toc-text">0xSquid + 安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%84%E5%BB%BASquid"><span class="toc-text">构建Squid</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7Squid"><span class="toc-text">监控Squid</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Squid%E7%9A%84%E4%B8%8B%E4%B8%80%E6%AD%A5%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Squid的下一步是什么</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC-return%E5%92%8Creturns"><span class="toc-text">返回值 return和returns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E5%BC%8F%E8%B5%8B%E5%80%BC"><span class="toc-text">解构式赋值</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -449,32 +449,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p><strong>原文:<a target="_blank" rel="noopener" href="https://axelar.network/blog/cross-chain-liquidity-via-squid">https://axelar.network/blog/cross-chain-liquidity-via-squid</a></strong></p>
-<p><strong>翻译:FeiDan</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>Squid 是一种协议，可通过单个 Javascript 软件开发工具包 (SDK) 实现跨链流动性路由和交换。</strong></p>
-</blockquote>
-<p><strong>在开发了自己的 Web3 应用程序之后，从应用程序到共识级别，Squid 的创始人对构建可互操作的 Web3 应用程序的障碍和痛点有第一手的经验。这种经历激发了他们构建<a target="_blank" rel="noopener" href="https://0xsquid.com/">Squid</a>的使命，即让开发人员尽可能轻松地利用跨链流动性。</strong></p>
-<h1 id="什么是-Squid-协议以及它如何实现跨链流动性？"><a href="#什么是-Squid-协议以及它如何实现跨链流动性？" class="headerlink" title="什么是 Squid 协议以及它如何实现跨链流动性？"></a><strong>什么是 Squid 协议以及它如何实现跨链流动性？</strong></h1><p><strong>Squid 正在为开发人员和用户提供跨链的未来。对于开发人员而言，Squid 是一种协议，可通过单个 Javascript 软件开发工具包 (SDK) 实现跨链流动性路由和交换。通过将用户连接到 Web3 中任何位置的 dex 上的流动性池，此路由允许在所有受支持的链上交换任何代币。SDK 通过获取返回令牌传输<a target="_blank" rel="noopener" href="https://docs.0xsquid.com/get-started/get-a-route">详细信息</a>和执行成本的路由来工作。然后，开发人员可以使用所需的签名者和路由执行传输。</strong></p>
-<p><img src="https://miro.medium.com/max/700/0*6x0JrpIK3scD2bdS.png" alt="img"></p>
-<p><strong>Squid 使用<a target="_blank" rel="noopener" href="https://docs.axelar.dev/dev/gmp-overview">Axelar 的通用消息传递</a>功能来实现跨多个链的智能合约调用。使用Squid<a target="_blank" rel="noopener" href="https://docs.0xsquid.com/get-started/set-your-transfer-parameters/multicall-wip">的多调用特性</a>，应用程序可以依次调用多个合约。用例可能包括使用另一个链上的 dex 交换令牌，然后在另一个 dApp 中使用获得的令牌。此功能提供了跨链流动性，并为用户和开发人员节省了时间，因为第二笔交易不需要签名。</strong></p>
-<p><strong>这对用户意味着一键交易。他们不需要下载多个钱包来签署跨不同链的交易。用户可以从任何市场购买 NFT，在另一条链上玩游戏或使用多链 DeFi 协议进行交易，无需任何额外步骤。Squid 使 dApp 能够使用 Axelar 网络提供的安全性来获取跨链流动性并提供这种体验。</strong></p>
-<h1 id="0xSquid-安全"><a href="#0xSquid-安全" class="headerlink" title="0xSquid + 安全"></a>0xSquid + 安全</h1><p><strong>让开发人员更容易为其应用程序添加跨链流动性并非没有挑战。每当从事任何跨链解决方案时，安全性都是重中之重。任何错误或漏洞都可能导致用户资金损失和协议可信度损失。</strong></p>
-<p><strong>在研究了不同的解决方案后，Squid 的团队对 Axelar 网络提供的安全性充满信心。Squid 和 Axelar 采用“最小表面积”的安全方法。这意味着使用的智能合约仅执行路由流动性的逻辑，但本身并不持有流动性。</strong></p>
-<p><strong>Squid 执行的交换仅通过受信任的自动货币制造商 (AMM) 执行，并且不会引入新的交换合约。路由是 Squid 的唯一关注点。Squid 合约和 SDK 完成了管理跨链逻辑的所有工作，确保一致地应用安全标准并最大限度地减少人为错误的表面积。</strong></p>
-<p><strong>除了使用 Axelar 提供的权益证明验证器集之外，Squid 还对<a target="_blank" rel="noopener" href="https://ackeeblockchain.com/">Ackee Blockchain的</a><a target="_blank" rel="noopener" href="https://docs.0xsquid.com/welcome-to-gitbook/the-basics/security-and-audits">合同</a>进行了审计，并正在接受 Consensys Diligence 的第二次审计，以增加一层安全性。</strong></p>
-<h1 id="构建Squid"><a href="#构建Squid" class="headerlink" title="构建Squid"></a>构建Squid</h1><p><img src="https://miro.medium.com/max/700/0*ra7anvCzISSEk6lz.png" alt="img"></p>
-<p><strong>构建跨链协议需要测试。在每个参与链的主网上进行测试不仅成本高昂，而且违背了所有最佳实践。为了为 Squid 建立一个真实的测试环境，该团队需要分叉 6 条不同链的主网以及 Axelar 的本地实例。</strong></p>
-<p><strong>对于他们可用的工具，这几乎是不可能的。在 Axelar 团队的帮助下，<a target="_blank" rel="noopener" href="https://github.com/axelarnetwork/axelar-local-dev">Axelar Local Development</a>诞生了。Axelar-Local-Dev 创建 Axelar 网关的本地实例，并允许开发人员在受支持链的主网分叉上创建合约并在它们之间传递消息。这将创建一个本地环境来正确测试使用 Axelar 的任何跨链应用程序。</strong></p>
-<p><strong>Axelar Local Development 让 Squid 的团队可以完全控制他们的开发环境。构建项目所需的合约和 API 的迭代时间和成本显着降低。现在团队可以模拟和理解其他主网应用程序与 Squid 交互的行为。</strong></p>
-<h1 id="监控Squid"><a href="#监控Squid" class="headerlink" title="监控Squid"></a>监控Squid</h1><p><strong>在多条链上工作时，能够监控跨链的交易至关重要。这使开发人员能够了解协议的整体健康状况和网络中的瓶颈。对于 Squid 的团队来说，监控对于他们的协议开发和集成它的开发人员都很重要。</strong></p>
-<p><strong>Axelarscan区块浏览器提供了一个用户界面和 API，已被证明是 Squid 团队工具集中非常有用的一部分。<a target="_blank" rel="noopener" href="https://axelarscan.io/">Axelarscan</a> 允许用户查看 Axelar 网络的整体活动以及特定交易和链的信息。来源、目的地、资产和当前状态等交易详情可在<a target="_blank" rel="noopener" href="https://axelarscan.io/transfers">Transfers Explorer</a>中找到。</strong></p>
-<h1 id="Squid的下一步是什么"><a href="#Squid的下一步是什么" class="headerlink" title="Squid的下一步是什么"></a>Squid的下一步是什么</h1><p><strong>Squid 的一个主要目标是即时执行跨链交易。他们目前正在与 Axelar 的团队合作开发 Axelar Gateway 的新实施，以实现这一目标。在撰写本文时，跨链交易总是会增加延迟。至少，必须尊重源、桥接协议和目标链的确认时间。这导致需要<a target="_blank" rel="noopener" href="https://axelar.network/blog/how-to-build-a-cross-chain-dapp-interop-architecture-101">跨链架构的新方法</a>。但是，在源链上提供证明后，正在开发使跨链交易能够立即在目标链上执行。这种级别的交易时间将为跨链应用带来新的能力。</strong></p>
-<p><strong>Squid 的推出将成为 Axelar 生态系统的加速器，因为跨链流动性的采购变得像一个简单的 API 调用一样简单。开发人员将能够在 Axelar 上轻松构建更复杂的应用程序并跨链扩展 Web3。</strong></p>
-<p><strong>如果您有兴趣帮助更多的开发人员在 EVM 链和 Cosmos 之间构建跨链应用程序，<a target="_blank" rel="noopener" href="https://0xsquid.notion.site/Squid-Jobs-Board-193b7674b2be49c29d5bfe7907808090">Squid 团队正在招聘</a>！</strong></p>
-<p>**有关 Squid 的更多信息和更新，请在<a target="_blank" rel="noopener" href="https://twitter.com/0xsquid_">Twitter 上</a>关注他们并加入<a target="_blank" rel="noopener" href="https://discord.com/invite/vrJE79aWm6">Discord**</a></p>
+        <h2 id="返回值-return和returns"><a href="#返回值-return和returns" class="headerlink" title="返回值 return和returns"></a><strong>返回值 return和returns</strong></h2><p><strong><code>Solidity</code>有两个关键字与函数输出相关：<code>return</code>和<code>returns</code>，他们的区别在于：</strong></p>
+<ul>
+<li><p><strong><code>returns</code>加在函数名后面，用于声明返回的变量类型及变量名；</strong></p>
+</li>
+<li><p><strong><code>return</code>用于函数主体中，返回指定的变量。</strong></p>
+</li>
+</ul>
+<pre><code class="solidity">// SPDX-License-Identifier: MIT
+
+//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
+pragma solidity ^0.8.4; 
+
+contract HelloWeb3&#123;
+    //
+    function returnMultiple() public pure returns(uint256, bool, uint256[3] memory)&#123;
+            return(1, true, [uint256(1),2,5]);
+        &#125;
+
+    // 命名式返回
+    function returnNamed() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
+        _number = 2;
+        _bool = false; 
+        _array = [uint256(3),2,1];
+    &#125;        
+    // 命名式返回，依然支持return
+    function returnNamed2() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
+        return(1, true, [uint256(1),2,5]);
+    &#125;
+    
+&#125;
+</code></pre>
+<h2 id="解构式赋值"><a href="#解构式赋值" class="headerlink" title="解构式赋值"></a>解构式赋值</h2><p><strong><code>solidity</code>使用解构式赋值的规则，支持读取函数的全部或部分返回值。</strong></p>
+<p><strong>读取所有返回值：声明变量，并且将要赋值的变量用<code>,</code>隔开，按顺序排列。</strong></p>
+<pre><code class="solidity">// SPDX-License-Identifier: MIT
+
+//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
+pragma solidity ^0.8.4; 
+
+contract HelloWeb3&#123;
+
+
+    // 命名式返回
+    function returnNamed() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
+        _number = 2;
+        _bool = false; 
+        _array = [uint256(3),2,1];
+    &#125;        
+    // 命名式返回，依然支持return
+    function returnNamed2() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
+        return(1, true, [uint256(1),2,5]);
+    &#125;
+
+    function readNamed() public pure&#123;
+        uint256 _number;
+        bool _bool;
+        uint256[3] memory _array;
+        (_number, _bool, _array) = returnNamed();
+
+        //或者只读取一个值  (, _bool, ) = returnNamed();
+
+    &#125;
+&#125;
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
