@@ -6,15 +6,15 @@
   <meta name="keywords" content=" Linera ">
   <meta name="description" content="介绍Linera | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Web3 bulid">
+<meta name="description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://feidan-.github.io/categories/index.html">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://feidan-.github.io/about/index.html">
 <meta property="og:site_name" content="FeiDan">
-<meta property="og:description" content="Web3 bulid">
+<meta property="og:description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-11T04:07:48.000Z">
-<meta property="article:modified_time" content="2022-10-11T04:08:41.703Z">
+<meta property="article:published_time" content="2022-10-11T04:31:44.000Z">
+<meta property="article:modified_time" content="2022-10-11T06:53:10.863Z">
 <meta property="article:author" content="FeiDan">
 <meta name="twitter:card" content="summary">
 
@@ -560,7 +560,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-30 12:37:54'>2022-10-30 12:28</time>
+            发布时间 : <time class="date" title='最后更新: 2022-10-30 17:44:14'>2022-10-30 12:28</time>
         
     </div>
     <div class="article-meta">
@@ -601,22 +601,26 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="将web2的性能和可靠性引入web3"><a href="#将web2的性能和可靠性引入web3" class="headerlink" title="将web2的性能和可靠性引入web3"></a><strong>将web2的性能和可靠性引入web3</strong></h1><p><img src="https://miro.medium.com/max/700/1*kPq71LOX3wioySgTkb-yqw.jpeg" alt="img"></p>
+<blockquote>
+<p>原文：<a target="_blank" rel="noopener" href="https://medium.com/@linera/introducing-linera-bdb809735552">https://medium.com/@linera/introducing-linera-bdb809735552</a></p>
+<p>翻译人：FeiDan</p>
+</blockquote>
 <p>Hello World! 现在我想向大家介绍 Linera，这个我创建的项目，其使命是创建<strong>第一个可以像 web2 应用程序一样轻松扩展的低延迟区块链</strong>。</p>
 <p>在 Meta&#x2F;Novi 工作期间，我有幸从事分布式系统的最新研究。我对旨在彻底改变区块链可扩展性的两种协议特别感兴趣：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2003.11506.pdf">FastPay</a>和<a target="_blank" rel="noopener" href="https://linera.io/s/zef.pdf">Zef</a>。作为一名基础设施工程师，我迫不及待地将这些想法付诸实践，但很明显，这样一个雄心勃勃的项目需要专门的结构和适当的资金支持。</p>
 <h1 id="为什么我们需要低延迟区块链"><a href="#为什么我们需要低延迟区块链" class="headerlink" title="为什么我们需要低延迟区块链"></a>为什么我们需要低延迟区块链</h1><p>是区块链历来最重借出的功能就是在用例中表现出色的“抗审查性”。然而，越来越多的应用也需要低延迟—即，可预测的，响应用户操作的低确认时间。此类用例包括：零售支付、游戏的小额支付、自营交易以及区块链之间跨链。不幸的是，由于内存池的开销和验证者之间的复杂协调，最快区块链中的确认时间通常仍然需要几秒钟。</p>
 <p>我参与的 <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2003.11506.pdf">FastPay</a> 和 <a target="_blank" rel="noopener" href="https://linera.io/papers/zef.pdf">Zef</a> 的学术工作表明，简单的操作，如支付，通过完全移除内存池和最小化验证者之间的交互，可以大大加快速度。在这一系列协议中，区块链客户端直接与验证者通信来提交和确认新账户操作。</p>
 <p>Linera 区块链旨在推广这种方法并将其投入实际生产，<strong>使大多数基于帐户的操作能够在几分之一秒内得到确认</strong>。</p>
-<h1 id="线性扩展的案例"><a href="#线性扩展的案例" class="headerlink" title="线性扩展的案例"></a>线性扩展的案例</h1><p>现今，大型互联网应用是从头开始构建的，并已经考虑了可扩展性。用户依赖互联网进行日常活动，例如导航、购物和视频流。它们对速度变慢或服务中断的容忍度非常低。</p>
+<h1 id="线性扩展的案例"><a href="#线性扩展的案例" class="headerlink" title="线性扩展的案例"></a>线性扩展的案例</h1><p>现今，大型互联网应用是从头开始构建的，并已经考虑了可扩展性。用户依赖互联网进行日常活动，例如导航、购物和视频。它们对速度慢或服务中断的容忍度非常低。</p>
 <p>Web2 应用并不总是能达到这样的可扩展性和可靠性水平。可以说，这一突破来自于 2000 年代行业向一种称为“线性扩展”的严格水平扩展形式的转变。数据库社区<a target="_blank" rel="noopener" href="https://redis.com/redis-enterprise/technology/linear-scaling-redis-enterprise">解释得很好</a>：线性扩展意味着总是可以通过将系统的容量翻倍来翻倍机器数量。</p>
 <p>到目前为止，区块链优先考虑“序列”执行模型，该模型允许用户账户和智能合约在一系列交易中进行任意交互（例如闪电贷）。不幸的是，序列执行阻止了线性扩展。 <strong>我们认为，与数据库从 SQL 到 NoSQL 的演变相类似的范式转变，对于未来的去中心化系统提供任意规模的低延迟保证是必要的。</strong></p>
 <p>Linera 项目将开发和推广适用于线性扩展的全新的执行模型。在这样的模型中，默认情况下，对不同用户帐户的操作将同时运行——即在不同的执行线程中。通过这种方式，始终可以通过向每个验证者添加新的处理单元来扩展执行。在传统的 web2 架构中，这些额外的处理单元（称为“worker”或“shards”）由数据中心或云提供商按需提供。</p>
-<h1 id="等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？"><a href="#等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？" class="headerlink" title="等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？"></a>等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？</h1><p>现在，经典的“区块链困难三角”断言了同时实现可扩展性、安全性和去中心化的极高难度。这一观察虽然适用于固定规模的验证者，但我们认为在为大型、高吞吐量验证者进行定义和实施令人满意的去中心化概念方面，所做的努力还不够。特别是，使用商品硬件，审计高吞吐量系统历来具有挑战性，因为单个审计员不可能运行所有交易。</p>
-<p><strong>我们的目标是使用最先进的共识证明机制(state-of-the-art proof-of-stake mechanisms)和可扩展的审计程序来确保 Linera 协议的去中心化，以确保验证者的全面承担责任。</strong></p>
-<p>为了支持社区的大规模审计，我们打算利用 Linera 的并发执行模型。同样，我们也在密切关注有效性证明领域取得的快速持续进展。</p>
+<h1 id="等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？"><a href="#等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？" class="headerlink" title="等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？"></a>等等，如果验证者是数据中心，这仍然是一个去中心化协议吗？</h1><p>现在，经典的“区块链困难三角”断言了同时实现可扩展性、安全性和去中心化的极高难度。这一观察虽然适用于固定规模的验证者，但我们认为在为大型、高吞吐量验证者进行定义和实施令人满意的去中心化概念方面，所做的努力还不够。特别是，使用硬件，审计高吞吐量系统历来具有挑战性，因为单个审计员不可能运行所有交易。</p>
+<p><strong>我们的目标是使用最先进的共识证明机制(state-of-the-art proof-of-stake mechanisms)和可扩展的审计程序来确保 Linera 协议的去中心化，以确保验证者全面承担责任。</strong></p>
+<p>为了支持社区的大规模审计，我们打算利用 Linera 的并发模型。同样，我们也在密切关注有效性证明领域取得的快速持续进展。</p>
 <h1 id="这仅仅是开始"><a href="#这仅仅是开始" class="headerlink" title="这仅仅是开始"></a>这仅仅是开始</h1><p>我们目前正致力于实施 Linera 协议以及迈向开源发布的第一步。</p>
-<p>我们的创始团队包括工程师和研究人员（前 Zcash、前 Meta&#x2F;Novi、伦敦城市大学）在 web2 和 web3 方面具有强大的技术背景。我们相信，这种技能组合使我们具有独特的优势，可以实现我们的愿景，为去中心化应用带来高性能和高可靠性。</p>
+<p>我们的团队包括工程师和研究人员（前 Zcash、前 Meta&#x2F;Novi、伦敦城市大学）在 web2 和 web3 方面具有强大的技术背景。我们相信，这种技能组合使我们具有独特的优势，可以实现我们的愿景，为去中心化应用带来高性能和高可靠性。</p>
 <h1 id="我们正在招聘"><a href="#我们正在招聘" class="headerlink" title="我们正在招聘"></a>我们正在招聘</h1><p>我们对区块链技术、分布式系统和 Rust 编程语言充满热情。访问我们的 <a target="_blank" rel="noopener" href="https://linera.io/">网站</a>，在 <a target="_blank" rel="noopener" href="https://twitter.com/linera_io">Twitter</a> 上关注我们，或 <a href="mailto:contact@linera.io">给我们留言</a>了解更多关于我们的空缺职位。</p>
-<p>– Mathieu Baudet, Founder and CEO of Linera<br>—Linera 创始人兼首席执行官 Mathieu Baudet</p>
+<p>—Linera 创始人兼首席执行官 Mathieu Baudet</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
