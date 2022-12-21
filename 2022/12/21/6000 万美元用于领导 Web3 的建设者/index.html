@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>构造函数和修饰器 | FeiDan</title>
-  <meta name="keywords" content=" Solidity ">
-  <meta name="description" content="构造函数和修饰器 | FeiDan">
+  <title>6000 万美元用于领导 Web3 的建设者 | FeiDan</title>
+  <meta name="keywords" content=" Axelar ">
+  <meta name="description" content="6000 万美元用于领导 Web3 的建设者 | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:type" content="website">
@@ -614,9 +614,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-构造函数和修饰器" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-6000 万美元用于领导 Web3 的建设者" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">构造函数和修饰器</h1>
+        <h1 class="article-title">6000 万美元用于领导 Web3 的建设者</h1>
     
     <div class="article-meta">
         
@@ -626,7 +626,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Solidity">Solidity</a>
+            <a  data-rel="Axelar">Axelar</a>
             
         </span>
         
@@ -634,19 +634,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">Solidity</a>
+            <a class="color2">Axelar</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-17 14:59:11'>2022-10-17 14:17</time>
+            发布时间 : <time class="date" title='最后更新: 2022-12-21 15:27:01'>2022-12-21 15:26</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:529</span>
+        <span>字数:808</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -665,7 +665,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E5%99%A8"><span class="toc-text">修饰器</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -681,38 +681,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a><strong>构造函数</strong></h2><p><strong>构造函数（<code>constructor</code>）是一种特殊的函数，每个合约可以定义一个，并在部署合约的时候自动运行一次。它可以用来初始化合约的一些参数，例如初始化合约的<code>owner</code>地址：</strong></p>
-<pre><code class="solidity">   address owner; // 定义owner变量
-
-   // 构造函数
-   constructor() &#123;
-      owner = msg.sender; // 在部署合约的时候，将owner设置为部署者的地址
-   &#125;
-</code></pre>
-<p><strong>构造函数在不同的solidity版本中的语法并不一致，在Solidity 0.4.22之前，构造函数不使用 <code>constructor</code> 而是使用与合约名同名的函数作为构造函数而使用，由于这种旧写法容易使开发者在书写时发生疏漏（例如合约名叫 <code>Parents</code>，构造函数名写成 <code>parents</code>），使得构造函数变成普通函数，引发漏洞，所以0.4.22版本及之后，采用了全新的 <code>constructor</code> 写法。</strong></p>
-<p><strong>构造函数的旧写法代码示例：</strong></p>
-<pre><code class="solidity">pragma solidity =0.4.21;
-contract Parents &#123;
-    // 与合约名Parents同名的函数就是构造函数
-    function Parents () public &#123;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="修饰器"><a href="#修饰器" class="headerlink" title="修饰器"></a>修饰器</h2><p><strong>修饰器（<code>modifier</code>）是<code>solidity</code>特有的语法，类似于面向对象编程中的<code>decorator</code>.</strong></p>
-<p><strong>声明函数拥有的特性，并减少代码冗余。它就像钢铁侠的智能盔甲，穿上它的函数会带有某些特定的行为。<code>modifier</code>的主要使用场景是运行函数前的检查，例如地址，变量，余额等。</strong></p>
-<pre><code class="solidity">   // 定义modifier
-   modifier onlyOwner &#123;
-      require(msg.sender == owner); // 检查调用者是否为owner地址
-      _; // 如果是的话，继续运行函数主体；否则报错并revert交易
-   &#125;
-</code></pre>
-<pre><code class="solidity">    //代有onlyOwner修饰符的函数只能被owner地址调用，比如下面这个例子：
-
-   function changeOwner(address _newOwner) external onlyOwner&#123;
-      owner = _newOwner; // 只有owner地址运行这个函数，并改变owner
-   &#125;
-</code></pre>
-<p>我们定义了一个<code>changeOwner</code>函数，运行他可以改变合约的<code>owner</code>，但是由于<code>onlyOwner</code>修饰符的存在，只有原先的<code>owner</code>可以调用，别人调用就会报错。这也是最常用的控制智能合约权限的方法。</p>
+        <p>下一波加密采用，无论何时到来，都不会留给集中式“Web2”应用程序。</p>
+<p><img src="https://miro.medium.com/max/700/0*g7Z67ZJ7PAVhe_AO.jpg" alt="img"></p>
+<p>作为提供安全链间通信的基础设施项目，Axelar 看到了 Web3 中一些最具创新性和引人注目的项目。</p>
+<p>基于 Axelar 的开发人员致力于提供可以实现大规模采用的产品，而无需用户在区块链之间切换。</p>
+<p>基于 Axelar 的开发人员对跨链开发中提供的无需许可的可组合性感到兴奋。他们知道这意味着他们可以在全球范围内协作，使用开源代码和去中心化网络，绕过无休止的业务开发周期，并像使用乐高积木一样使用彼此的代码。</p>
+<p>基于 Axelar 的开发人员需要去中心化的基础设施。他们不愿意让他们的网络获得许可，可能被扣为人质或通过多重签名被黑客入侵。他们有远见和能力构建应用程序来传达无许可区块链的保证。他们不想要堆栈中任何地方的数据库或联合多重签名。</p>
+<p>不是每个人都有这样的奉献精神或技能。但正是这个级别的开发人员将构建 Web3 的入口，为数以百万计的用户提供服务。下一波加密采用，无论何时到来，都不会留给集中的“Web2”应用程序，这些应用程序从 Web3 开发人员开创的创新中获益。</p>
+<p>正是为了这些创新者，Axelar 今天宣布了 Axelar 生态系统启动资金计划，这是一项由顶级加密原生投资公司牵头的 6000 万美元计划：Blockchange、Chorus One、Collab+Currency、Cygni Capital、dao5、DCVC、Divergence Ventures、 Dragonfly Capital、Lemniscap、Morningstar Ventures、Nima Capital、Node Capital、North Island Ventures、Rockaway Blockchain Fund、SCB 10X 等。</p>
+<p>简而言之，Axelar 生态系统启动资金计划旨在培养开发人员构建 Web3 产品的渠道，这些产品可以与集中式网络上的任何产品相媲美。这意味着他们：</p>
+<ul>
+<li>解决中心化互联网无法解决的全球性问题。</li>
+<li>维护数字主权、安全和隐私。</li>
+<li>轻松搭载大众，特定区块链或代币之间没有不必要的摩擦。</li>
+</ul>
+<p>Axelar 生态系统启动资金计划适用于准备筹集机构资金的项目。此外，Axelar 还运营 Axelar Grant Program，该计划支持创意阶段的项目。有关所有资助计划的信息<a target="_blank" rel="noopener" href="https://axelar.network/grant-program">，请访问 Axelar 网站</a>。</p>
+<p>Axelar 生态系统启动资金计划将在分享这一愿景的投资者与构建使用 Axelar 作为基础设施的跨链 dApp 的新开发人员流之间建立联系，以使其成为现实。投资者及早接触项目；对于开发人员来说，该计划是一个与活跃的 Web3 投资者联系的机会，他们有共同的愿景和目标。</p>
+<p>开发商：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.axelar.dev/?utm_source=efp-announcement&utm_medium=blog&utm_campaign=efp">阅读文档</a></li>
+<li>了解 Axelar 如何帮助您打造与链无关且无缝的用户体验。</li>
+<li><a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/1-ogSZZ4qlv23pHXuSXCeok1fHm8umRWBt2qyUMcDXRw/viewform?edit_requested=true">在此申请</a> 让我们了解您的项目。（请选择生态系统资助计划或资助计划。）</li>
+</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
