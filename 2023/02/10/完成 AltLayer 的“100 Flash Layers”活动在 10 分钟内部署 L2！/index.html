@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>函数类型 | FeiDan</title>
-  <meta name="keywords" content=" Solidity ">
-  <meta name="description" content="函数类型 | FeiDan">
+  <title>alt | FeiDan</title>
+  <meta name="keywords" content=" AltLayer ">
+  <meta name="description" content="alt | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="JS---GET请求                      window.onload &#x3D; function(){                 var oBtn &#x3D; document.getElementById(&quot;btn1&quot;);                 oBtn.onclick &#x3D; functio">
 <meta property="og:type" content="website">
@@ -695,9 +695,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-函数类型" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-完成 AltLayer 的“100 Flash Layers”活动在 10 分钟内部署 L2！" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">函数类型</h1>
+        <h1 class="article-title">alt</h1>
     
     <div class="article-meta">
         
@@ -707,9 +707,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Solidity">Solidity</a> > 
-            
-            <a  data-rel="Solidity&lt;---&gt;函数">函数</a>
+            <a  data-rel="AltLayer">AltLayer</a>
             
         </span>
         
@@ -717,19 +715,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">Solidity</a>
+            <a class="color4">AltLayer</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-16 16:22:30'>2022-10-15 14:04</time>
+            发布时间 : <time class="date" title='最后更新: 2023-02-10 16:27:39'>2023-02-10 16:27</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1k</span>
+        <span>字数:924</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -748,7 +746,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#solidity%E4%B8%AD%E5%87%BD%E6%95%B0%E7%9A%84%E5%BD%A2%E5%BC%8F%EF%BC%9A"><span class="toc-text">solidity中函数的形式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B0%E5%BA%95%E4%BB%80%E4%B9%88%E6%98%AFPure%E5%92%8CView%EF%BC%9F"><span class="toc-text">到底什么是Pure和View？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-pure-v-s-view"><span class="toc-text">1. pure v.s  view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-internal-v-s-external"><span class="toc-text">2. internal v.s. external</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-payable"><span class="toc-text">3. payable</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-AltLayer-%E7%9A%84%E2%80%9C100-Flash-Layers%E2%80%9D%E6%B4%BB%E5%8A%A8%E5%9C%A8-10-%E5%88%86%E9%92%9F%E5%86%85%E9%83%A8%E7%BD%B2-L2%EF%BC%81"><span class="toc-text">通过 AltLayer 的“100 Flash Layers”活动在 10 分钟内部署 L2！</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -764,126 +762,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="solidity中函数的形式："><a href="#solidity中函数的形式：" class="headerlink" title="solidity中函数的形式："></a><strong>solidity中函数的形式：</strong></h3><pre><code class="solidity">    function &lt;function name&gt; (&lt;parameter types&gt;) &#123;internal|external|public|private&#125; [pure|view|payable] [returns (&lt;return types&gt;)]
-</code></pre>
-<ol>
-<li><p><strong><code>function</code>：声明函数时的固定用法，想写函数，就要以function关键字开头。</strong></p>
-</li>
-<li><p><strong><code>&lt;function name&gt;</code>：函数名</strong></p>
-</li>
-<li><p><strong><code>(&lt;parameter types&gt;)</code>：函数的参数，也就是要输入到函数的变量类型和名字。</strong></p>
-</li>
-<li><p><strong><code>&#123;internal|external|public|private&#125;</code>：函数可见性说明符，一共4种。没标明函数类型的，默认<code>internal</code>。</strong></p>
-<ul>
-<li><p><strong><code>public</code>: 内部外部均可见。(也可用于修饰状态变量，public变量会自动生成 <code>getter</code>函数，用于查询数值).</strong></p>
-</li>
-<li><p><strong><code>private</code>: 只能从本合约内部访问，继承的合约也不能用（也可用于修饰状态变量）。</strong></p>
-</li>
-<li><p><strong><code>external</code>: 只能从合约外部访问（但是可以用<code>this.f()</code>来调用，<code>f</code>是函数名）</strong></p>
-</li>
-<li><p><strong><code>internal</code>: 只能从合约内部访问，继承的合约可以用（也可用于修饰状态变量）。</strong></p>
-</li>
+        <h1 id="通过-AltLayer-的“100-Flash-Layers”活动在-10-分钟内部署-L2！"><a href="#通过-AltLayer-的“100-Flash-Layers”活动在-10-分钟内部署-L2！" class="headerlink" title="通过 AltLayer 的“100 Flash Layers”活动在 10 分钟内部署 L2！"></a>通过 AltLayer 的“100 Flash Layers”活动在 10 分钟内部署 L2！</h1><ul>
+<li><em>2 月 10 日至 28 日开放申请：欢迎大家申请！</em></li>
+<li><em>选择 10 位用户赢取 Oh Ottie！NFTs</em></li>
 </ul>
-</li>
-<li><p><strong><code>[pure|view|payable]</code>：决定函数权限&#x2F;功能的关键字。<code>payable</code>（可支付的）很好理解，带着它的函数，运行的时候可以给合约转入<code>ETH</code>。<code>pure</code>和<code>view</code>的介绍见下一节。</strong></p>
-</li>
-<li><p><strong><code>[returns ()]</code>：函数返回的变量类型和名称。</strong></p>
-</li>
-</ol>
-<h3 id="到底什么是Pure和View？"><a href="#到底什么是Pure和View？" class="headerlink" title="到底什么是Pure和View？"></a>到底什么是<code>Pure</code>和<code>View</code>？</h3><p><strong><code>pure</code>跟<code>view</code>关键字的函数是不改&#x2F;写链上状态的，因此用户直接调用他们是不需要付gas的（合约中非<code>pure</code>&#x2F;<code>view</code>函数调用它们则会改写链上状态，需要付gas）。</strong></p>
-<ol>
-<li><p><strong>包含<code>pure</code>关键字的函数，不能读取也不能写入存储在链上的状态变量。</strong></p>
-</li>
-<li><p><strong>包含<code>view</code>关键字的函数，能读取但也不能写入状态变量。</strong></p>
-</li>
-<li><p><strong>不写<code>pure</code>也不写<code>view</code>，函数既可以读取也可以写入状态变量。</strong></p>
-</li>
-</ol>
-<p><strong>在以太坊中，以下语句被视为修改链上状态：</strong></p>
-<blockquote>
-<p><strong>写入状态变量。</strong></p>
-<p><strong>释放事件。</strong></p>
-<p><strong>创建其他合同。</strong></p>
-<p><strong>使用selfdestruct.</strong></p>
-<p><strong>通过调用发送以太币。</strong></p>
-<p><strong>调用任何未标记view或pure的函数。</strong></p>
-<p><strong>使用低级调用（low-level calls）。</strong></p>
-<p><strong>使用包含某些操作码的内联汇编。</strong></p>
-</blockquote>
-<p><strong>以下被认为是从状态中读取：</strong></p>
-<blockquote>
-<ol>
-<li><strong>读取状态变量。</strong></li>
-<li><strong>访问 <code>this.balance</code> 或者 <code>&lt;address&gt;.balance</code>。</strong></li>
-<li><strong>访问 <code>block</code>，<code>tx</code>， <code>msg</code> 中任意成员 （除 <code>msg.sig</code> 和 <code>msg.data</code> 之外）。</strong></li>
-<li><strong>调用任何未标记为 <code>pure</code> 的函数。</strong></li>
-<li><strong>使用包含某些操作码的内联汇编。</strong></li>
-</ol>
-</blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="1-pure-v-s-view"><a href="#1-pure-v-s-view" class="headerlink" title="1. pure v.s  view"></a>1. pure v.s  view</h3><pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract HelloWeb3&#123;
-    
-    uint256 public number = 5;
-    
-    //定义add函数 external是可以从合约外部调用此函数 
-
-    function add() external&#123;
-        number = number + 1;
-    &#125;
-    //pure 不能读取也不能写入存储在链上的状态变量number
-    //那pure函数能做些什么？举个例子，你可以给函数传递一个参数 _number，然后让他返回 _number+1。
-    function addPure(uint256 _number) external pure returns(uint256 new_number)&#123;
-        new_number = _number+1;
-    &#125;
-    //view 能读取，但不能够改写状态变量number
-    //可以稍微改写下方程，让他不改写number，而是返回一个新的变量。
-    function addView() external view returns(uint256 new_number) &#123;
-        new_number = number + 1;
-    &#125;
-&#125;
-</code></pre>
-<h3 id="2-internal-v-s-external"><a href="#2-internal-v-s-external" class="headerlink" title="2. internal v.s. external"></a>2. internal v.s. external</h3><pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract Web3&#123;
-
-    uint256 public number = 5;
-
-     // internal: 内部
-    function minus() internal &#123;
-        number = number - 1;
-    &#125;
-
-    // 合约内的函数可以调用内部函数
-    function minusCall() external &#123;
-        minus();
-    &#125;
-&#125;
-</code></pre>
-<h3 id="3-payable"><a href="#3-payable" class="headerlink" title="3. payable"></a>3. payable</h3><pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract HelloWeb3&#123;
-
-    // payable: 递钱，能给合约支付eth的函数
-    function minusPayable() external payable returns(uint256 balance) &#123;
-        balance = address(this).balance;
-    &#125;
-&#125;
-</code></pre>
-<p><strong>this关键字可以让我们引用合约地址</strong></p>
-<p><img src="https://images.mirror-media.xyz/publication-images/ETDPN8myq7jFfAL8CUAFt.png?height=148&width=588" alt="img"></p>
-<p><strong>我们可以在返回的信息中看到，合约的余额是1 ETH。</strong></p>
-<p><img src="https://images.mirror-media.xyz/publication-images/nGZ2pz0MvzgXuKrENJPYf.png?height=128&width=1130" alt="img"></p>
-<p><strong>Example:</strong> <img src="https://wtf.academy/assets/images/3-2-e1be980c21311dc80f6233dac763fd89.png" alt="3-2.png"></p>
+<p><img src="https://miro.medium.com/max/700/0*n1osO5-GO_cODawS" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="https://altlayer.io/">AltLayer</a> 准备推出首个无代码汇总仪表板解决方案，开发人员、构建者和用户可以使用该解决方案在不到 10 分钟的时间内自主设置和部署自定义闪存层！作为市场上第一个提供 Rollups-as-a-Service 的公司，我们处于独特的位置，可以设计一个简单、优雅且急需的仪表板，它将永远简化和改变 dApp 构建过程。</p>
+<p>该仪表板已构建为一个直观的工具，可使用资源管理器跨多个链部署生产执行层。此外，该工具使用户能够试验其闪存层的一次性特性。</p>
+<p>我们设计了一个特殊的“100 Flash Layers”活动，部分用户可以通过该活动测试我们的弹性执行功能，并亲身体验我们无代码汇总的强大功能。</p>
+<p>如需考虑，请通过此<a target="_blank" rel="noopener" href="https://galxe.com/altlayer/campaign/GCVBiU4Vub">链接</a>申请，并在 2 月 10 日至 28 日之间完成指定任务。100 名选定用户将获得对汇总仪表板的优先测试访问权。他们可以选择部署全新的应用程序、现有 dApp 的副本，或使用我们预先部署并提供访问权限的应用程序。</p>
+<p>欢迎所有人申请 — — 无论您是开发人员、学生、VC、区块链爱好者、分析师还是其他任何人！</p>
+<p>闪存层活动定于 3 月 2 日至 10 日之间进行。活动结束后，10 名选定的获胜者将获得我们独家 <em>Oh Ottie! NFT</em>。</p>
+<p><strong>什么是闪存层？</strong></p>
+<p>闪存层是指一次性 L2 网络，它通过提供 L1 网络网络可能无法最佳执行的交易速度和可扩展性来促进交易。它与底层区块链同步运行。当开发人员预计对 dApp 的需求增加时，Flash 层特别有用。借助快速部署的闪存层，他们可以根据需要集成汇总，以避免 Layer1 拥塞，随后当活动结束或需求减少时，他们可以通过“终结”功能非常轻松地处置汇总 Layer1 上的交易信息结算。</p>
+<p><strong>为什么无代码汇总？为什么现在？</strong></p>
+<p>无代码汇总将大大简化和加速 dApp 构建过程。开发人员和创始人无需编写任何代码即可更轻松地创建、管理和部署复杂的应用程序。那些对 Web3 或 DeFi 有好主意的人现在将能够利用区块链，因为他们的进入门槛已大大降低。从本质上讲，您可以以更少的成本、更短的时间、更少的摩擦和更少的麻烦将您的想法变为现实 — — 为您的最终产品增加更多的东西并降低您的运营成本。</p>
+<p>鉴于 L1 上的应用程序当前面临的资源和可扩展性方面众所周知的限制，汇总的时机已经到来，并且将继续存在。</p>
+<p>我们很高兴看到各种 dApp（DeFi、SocialFi、NFT、metaverse、游戏等）通过我们的快速无代码仪表板启动，这让每个用户都拥有显着的自主权和对他们项目的控制权。Web3 应该为很多人服务，而不是为少数人服务，从长远来看，像这样的工具将使这个空间更容易获得和可持续发展。</p>
+<hr>
+<p>欲了解更多信息，请关注我们：</p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/alt_layer">推特</a></p>
+<p><a target="_blank" rel="noopener" href="https://discord.gg/altlayer">Discord</a></p>
+<p><a target="_blank" rel="noopener" href="https://t.me/altlayer">电报</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
