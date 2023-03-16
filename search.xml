@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>“100 Flash Layers”汇总启动板的早期访问测试结束</title>
+      <link href="/2023/03/16/%E2%80%9C100%20Flash%20Layers%E2%80%9D%E6%B1%87%E6%80%BB%E5%90%AF%E5%8A%A8%E6%9D%BF%E7%9A%84%E6%97%A9%E6%9C%9F%E8%AE%BF%E9%97%AE%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9D%9F/"/>
+      <url>/2023/03/16/%E2%80%9C100%20Flash%20Layers%E2%80%9D%E6%B1%87%E6%80%BB%E5%90%AF%E5%8A%A8%E6%9D%BF%E7%9A%84%E6%97%A9%E6%9C%9F%E8%AE%BF%E9%97%AE%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9D%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="“100-Flash-Layers”结束了汇总启动板的早期访问测试"><a href="#“100-Flash-Layers”结束了汇总启动板的早期访问测试" class="headerlink" title="“100 Flash Layers”结束了汇总启动板的早期访问测试"></a>“100 Flash Layers”结束了汇总启动板的早期访问测试</h1><p><em>宣布 10 名获奖者。向下滚动查看详情！</em></p><p><img src="https://miro.medium.com/v2/resize:fit:700/0*1Xn7p0hvCuFFxuJz" alt="img"></p><p>大家好，</p><p>我们为期一周的活动在 3 月 10 日星期五结束，向 100 名精选测试人员介绍了同类中的第一个无代码汇总平台，并取得了惊人的效果。感谢大家的参与和支持！以下是该活动的内容以及我们取得的成就的回顾。</p><p>AltLayer 的 rollup launchpad 可帮助用户在短短 5 分钟内启动 Layer 2 — — 一个可定制且按需付费的层。此 rollup 为底层链添加了一个应用程序定制的弹性执行层，从而为用户提供了可扩展性和性能的提升。它直观、快速并增强了您的 Web3 体验。</p><p><img src="https://miro.medium.com/v2/resize:fit:700/0*miA7JdOWChXo7v9Y" alt="img"></p><p>一窥 rollup launchpad</p><h2 id="亮点"><a href="#亮点" class="headerlink" title="亮点"></a>亮点</h2><p>几分钟内部署的闪存层被用于跨 DeFi 的一系列应用程序；社交网络；NFT 等 — — 很好地展示了它的灵活性和可定制性。<strong>这些闪存层在一周内</strong>总共生成了 1.05 亿多笔交易，平均为 173 TPS。最受欢迎的 Flash 层有超过 2300 万笔交易。观察到的 TPS 峰值为 654。<strong>大约 16% 的闪存层记录了超过 100 万笔交易</strong>，其中约 88% 的闪存层收到了超过 50 万笔交易。</p><p>来自 <a href="https://l2beat.com/scaling/tvl">l2beat.com</a> 的下表显示了今天不同实时汇总的活动，是一个很好的数据源，可以透视闪存层数。<strong>在我们的活动期间，最受欢迎的闪存层在一周内处理的交易数量（即 2300 万） — — 推断当超过一个月时 — — 大于所有现有 Layer 2 和以太坊的总和</strong>。<strong>在此测试期间启动的单个闪存层的作用超过了所有层的总和 — — 这至少可以说是令人震惊的，并且是汇总能够提供的可扩展性和性能的有力证据。</strong>此外，所有闪存层中有 11% 记录的最大每日 TPS 高于 l2beat 上列出的 Layer 2 的最高每日最大 TPS。rollups 很好地处理了流量，可以成为解决行业中普遍存在的拥堵问题的一个很好的解决方案。</p><p>可以在此处找到有关闪存层的更多相关统计信息：<a href="https://100fl-stats.altlayer.io/%E3%80%82">https://100fl-stats.altlayer.io/。</a></p><p><img src="https://miro.medium.com/v2/resize:fit:700/0*ftWUhhJgmtf0ii14" alt="img"></p><p><img src="https://miro.medium.com/v2/resize:fit:454/0*N7iVB4Os67BRUv9d" alt="img"></p><p><em>说明：所有 100 个 Flash 层都带有水龙头、资源管理器和一个 rpc 端点。</em></p><p>按类别划分的 10 名获奖者：</p><ol><li>交易量 — — Flash Layer: altlayer2 [链上总交易量：23206360]</li><li>最高 TPS — — Flash Layer: altlayer2 [记录的最高 TPS：654.33333]</li><li>最佳用例 — — DeFi</li></ol><ul><li><p>#1 MotherStaker</p></li><li><p>#2 PikaV2</p></li><li><p>最佳用例 — — NFT &amp; NFTfi</p></li><li><p>#1 SoulFans</p></li><li><p>#2 Blockside NFT</p></li><li><p>最佳用例 — — 游戏</p></li><li><p>#1 Depets</p></li><li><p>#2 ValorGuard</p></li><li><p>最佳用例 — — 社交 <em>socialFi</em></p></li><li><p>#1 Port3</p></li><li><p>#2 No project</p></li></ul><p>注意：由于 socialFi 类别没有第二名，我们决定将最后一个 Ottie 授予链上指标的亚军 — apelandlayer。</p><p><em>Apelandlayer 共有 17,220,314 笔交易，TPS 峰值为 521.54181。</em></p><p>加入我们，祝贺所有当之无愧的获奖者！我们的<a href="https://100fl-showcase.altlayer.io/1cb21524642b425fadd0f9f903c22efc">展示页面</a>展示了部署的各种应用程序，请浏览。</p><p>我们还将在社交媒体上分享一些参与者的感言，所以请关注我们以获取更多信息……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AltLayer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AltLayer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>通过 AltLayer 的“100 Flash Layers”活动在 10 分钟内部署 L2！</title>
       <link href="/2023/02/10/%E5%AE%8C%E6%88%90%20AltLayer%20%E7%9A%84%E2%80%9C100%20Flash%20Layers%E2%80%9D%E6%B4%BB%E5%8A%A8%E5%9C%A8%2010%20%E5%88%86%E9%92%9F%E5%86%85%E9%83%A8%E7%BD%B2%20L2%EF%BC%81/"/>
       <url>/2023/02/10/%E5%AE%8C%E6%88%90%20AltLayer%20%E7%9A%84%E2%80%9C100%20Flash%20Layers%E2%80%9D%E6%B4%BB%E5%8A%A8%E5%9C%A8%2010%20%E5%88%86%E9%92%9F%E5%86%85%E9%83%A8%E7%BD%B2%20L2%EF%BC%81/</url>
