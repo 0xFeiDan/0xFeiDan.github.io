@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>关于 | FeiDan</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="关于 | FeiDan">
+  <title>简析 Rollups-as-a-Service | FeiDan</title>
+  <meta name="keywords" content=" AltLayer ">
+  <meta name="description" content="简析 Rollups-as-a-Service | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:type" content="website">
@@ -686,24 +686,39 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-简析 Rollups-as-a-Service" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">关于</h1>
+        <h1 class="article-title">简析 Rollups-as-a-Service</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="AltLayer">AltLayer</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">AltLayer</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-11 14:53:10'>2022-10-11 12:31</time>
+            发布时间 : <time class="date" title='最后更新: 2023-03-31 17:19:14'>2023-03-31 16:01</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:35</span>
+        <span>字数:593</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -722,7 +737,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B"><span class="toc-text">个人简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-text">联系方式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rollups-as-a-Service-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">Rollups-as-a-Service 的原理</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -738,11 +753,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>如果加载不出图片，请搭梯子则可查看图片。</strong></p>
-<h3 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h3><p>FeiDan</p>
-<p>Web3 爱好者</p>
-<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p><a target="_blank" rel="noopener" href="https://twitter.com/newssssyyyy">FeiDan</a></p>
-<p>Discord:FeiDan#9657</p>
+        <p>模块化区块链的出现、以太坊以 rollup 为中心的愿景，以及 Vitalik 在他的《Endgame》一文中为了可扩展性而承认的中心化，几乎使这种未来愿景成为必然。</p>
+<p>许多应用程序团队不想考虑运行基础架构。就像 AWS 如何抽象化托管服务器的复杂性一样，RaaS 项目也在为建立和维护区块链做同样的事情。</p>
+<p>快进到现在，汇总即服务 (RaaS) 将为基于区块链的应用程序提供类似的竞争优势。Rollups 添加了一个弹性执行层，以在需要时有效地提高可扩展性和性能——现在它可以在没有更高成本、链限制或构建时间的情况下完成。</p>
+<p>简而言之，RaaS 之于 Web3 可能就像 AWS 之于 Web2 时代一样。</p>
+<p>在不久的将来，部署新链就像创建新网页或扩展和缩小应用程序那样简单，就像我们现在通过 Docker 容器和 Kubernetes 所做的一样。</p>
+<img src="https://pbs.twimg.com/media/FpuRQxLacAARQsT?format=jpg&name=large" style="zoom:33%;" />
+
+<h3 id="Rollups-as-a-Service-的原理"><a href="#Rollups-as-a-Service-的原理" class="headerlink" title="Rollups-as-a-Service 的原理"></a>Rollups-as-a-Service 的原理</h3><p>Rollups-as-a-Service 可帮助用户根据他们的特定需求轻松创建和管理汇总——正在成为一种可行的技术。RaaS 被建模为一种弹性的、按需付费的服务，通过将一些计算负载从主网络转移出去，可以实现更快、更便宜的交易，几乎没有拥塞。 </p>
+<p>Rollups-as-a-Service 产品允许开发人员通过提供简单易用的图形界面来启动汇总。让不使用复杂的 SDK，而是提供一个界面，允许通过简单的按钮和点击进行链定制。</p>
+<p>Rollups 相对于主权链的另一个好处是，rollups 从底层第 1 层获得安全性，因此，即使它们仅由处理用户交易的单个节点组成，这些 rollups 也是安全的。</p>
+<p>具体来看，其应对方式如下：</p>
+<p>1.快速启动一个由一层网络（如以太坊）保证安全性的Rollup解决方案。</p>
+<p>2.合理利用Rollup解决方案，从而防止一层网络的空间堵塞。</p>
+<p>3.通过在一层网络进行 “end-of-life ”的结算程序来结束Rollup解决方案的调用。</p>
+<p>点击<a target="_blank" rel="noopener" href="https://www.ethereum.cn/an-incomplete-guide-to-rollups">Rollup</a>了解更多知识</p>
+<p>点击了解更多<a target="_blank" rel="noopener" href="https://link.medium.com/suq3z2DVCrb">AltLayer应用案例</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
