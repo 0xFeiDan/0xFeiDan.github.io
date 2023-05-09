@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>关于 | FeiDan</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="关于 | FeiDan">
+  <title>1 | FeiDan</title>
+  <meta name="keywords" content=" AltLayer ">
+  <meta name="description" content="1 | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:type" content="website">
@@ -749,24 +749,39 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-通过 AltLayer Altitude 活动推出首个多定序器测试网汇总" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">关于</h1>
+        <h1 class="article-title">1</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="AltLayer">AltLayer</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">AltLayer</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-11 14:53:10'>2022-10-11 12:31</time>
+            发布时间 : <time class="date" title='最后更新: 2023-05-09 22:20:54'>2023-05-09 22:19</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:35</span>
+        <span>字数:1.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -785,7 +800,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B"><span class="toc-text">个人简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-text">联系方式</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -801,11 +816,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>如果加载不出图片，请搭梯子则可查看图片。</strong></p>
-<h3 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h3><p>FeiDan</p>
-<p>Web3 爱好者</p>
-<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p><a target="_blank" rel="noopener" href="https://twitter.com/newssssyyyy">FeiDan</a></p>
-<p>Discord:FeiDan#9657</p>
+        <p><img src="https://miro.medium.com/v2/resize:fit:700/0*s5-vqGTaHtE_eISz.jpeg" alt="img"></p>
+<ul>
+<li><em>活动欢迎 AltLayer OG、开发人员和更广泛的社区来试验测试网功能</em></li>
+<li><em>多定序器测试（第一阶段）于 2023 年 5 月 4 日至 6 月 30 日开放</em></li>
+</ul>
+<p>嗨大家好，</p>
+<p><strong>我们很高兴与大家分享 AltLayer 测试网的工作正在进行中，并将分四个不同的阶段（从今天开始！）</strong>向公众公开。每个阶段都将推出令人难以置信的新基础设施功能，为汇总设计和实施设定新标准。</p>
+<p>在第一阶段，我们引入了<strong>首个用于汇总的多定序器网络。</strong>这是非常新颖的，因为今天的每个汇总（ZK 或乐观汇总）都使用集中式定序器运行。尽管定序器在正确执行 L2 交易方面不受信任，但它们在聚合交易、排序和执行交易、生成预确认交易等方面发挥着核心作用。因此，运行汇总的集中式定序器可以：</p>
+<ul>
+<li>审查用户交易</li>
+<li>成为瓶颈或在最坏的情况下可能无法使用</li>
+<li>榨取超额租金</li>
+<li>Frontrun 用户交易或更广泛地创建不良 MEV 并对用户产生不利影响</li>
+</ul>
+<p>事实上，有几个真实世界的例子，当定序器关闭时，带有集中式定序器的汇总停止处理事务。</p>
+<p>AltLayer 的 multi sequencer TestNet 网络旨在改变这一点。它是去中心化定序器汇总的首批实现之一，可在保持性能的同时减轻与单个定序器相关的问题。</p>
+<p>这就是为什么我们非常高兴不仅要分享新闻，还要分享测试网本身，供大家进行测试体验。测试网汇总的第一阶段将完全专注于去中心化排序（<em>我们才刚刚开始！）</em>。</p>
+<p><strong>第一阶段发布的测试网功能</strong></p>
+<p>测试网由两种类型的节点组成：定序器和验证器。定序器对交易进行排序，而验证器检查生成的区块链状态是否正确，如果正确，它们将状态根提交给底层 L1。对于我们的测试网，我们将使用以太坊的 Sepolia 测试网作为 L1。</p>
+<p><strong>这是“第一阶段</strong>”的特征分解 — — <strong>多定序器 L2 网络：</strong></p>
+<ul>
+<li>运行本地共识的多定序器 L2</li>
+<li>验证者对 L1（Sepolia 测试网）的常规状态根承诺</li>
+<li>支持原生 ETH、ERC-20 和 ERC-721 代币的 Rollup 桥</li>
+<li>L1 到 L2 的资产存入</li>
+<li>将资产从 L2 提取到 L2，有一个挑战期</li>
+<li>区块浏览器</li>
+<li>测试网代币水龙头</li>
+</ul>
+<p><strong>参与其中</strong></p>
+<p>随着测试网第一阶段的发布，我们正在开展一项活动，以鼓励社区成员试用测试网、体验网络，最重要的是感受带有去中心化定序器的汇总的力量。</p>
+<p>虽然您可以自由地以自己有趣和创造性的方式试用测试网，但我们正在发起一项名为 <strong>Altitude</strong> 的结构化活动，让您尝试测试网的关键部分，其中涉及在以太坊的 Sepolia 之间来回桥接不同类型的资产测试网到 AltLayer 多定序器汇总。Altitude 将帮助您了解我们测试网的实际功能，并总体上试验 L2 网络。</p>
+<p>详情和说明可以在下面找到。</p>
+<p><strong>ALTITUDE：第 1 阶段（使用我们的多定序器网络）</strong></p>
+<p>该活动的第一部分将于 <strong>5 月 4 日至 6 月 30 日举行。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://galxe.com/altlayer/campaign/GC5VuUyqHS">要获得此活动的资格，请访问 Galxe 并完成以下任务：</a></p>
+<ul>
+<li>在 Twitter 上关注 @alt_layer</li>
+<li>加入我们的 Discord</li>
+<li>通过 rollup bridge 从 Sepolia TestNet 存入和取出 Sepolia ETH 并存入 AltLayer TestNet</li>
+<li>通过汇总桥将 ERC-20 MSEQ 令牌从 Sepolia 测试网存入和提取到 AltLayer 测试网</li>
+<li>通过汇总桥将 ERC-721 MSNFT 代币存入和取出并存入从 Sepolia 测试网到 AltLayer 测试网</li>
+</ul>
+<p><strong>注意：</strong>用户需要将这些资产从 Sepolia 桥接到我们的测试网并返回（按照这个精确的顺序）才算有效。</p>
+<p>完成所有任务后，用户可以领取专门针对<strong>多定序器发放的 OAT（链上成就令牌）徽章。</strong></p>
+<p><strong>Altitude 第一阶段抢先体验（5 月 4 日至 5 月 6 日）</strong></p>
+<p>我们已授予 OG Badge 和 Oh Ottie NFT 持有者提前访问多定序器测试网的特权！正如所承诺的那样。所有 AltLayer OG 徽章和 Oh Ottie 的持有者快照已于 5 月 2 日执行完毕，并给这些用户发放了 Sepolia 测试网上 MSEQ 和 MSNFT 测试币。其他用户将可以从 <strong>5 月 6 日星期六</strong>访问以试用这些功能。</p>
+<p>有关如何使用测试网进行实验的分步说明，请查看：<a target="_blank" rel="noopener" href="https://docs.altlayer.io/altlayer-documentation/testnet/quick-access">https :&#x2F;&#x2F;docs.altlayer.io&#x2F;altlayer-documentation&#x2F;testnet&#x2F;quick-access</a></p>
+<p>享受吧！</p>
+<p>与此同时，请注意，我们将在下周五（5 月 12 日）逐步淘汰我们的开发网。建议用户备份他们的数据&#x2F;合同并将测试网代币桥接回 L1。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>

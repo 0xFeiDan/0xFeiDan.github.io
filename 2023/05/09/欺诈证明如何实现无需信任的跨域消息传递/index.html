@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>关于 | FeiDan</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="关于 | FeiDan">
+  <title>欺诈证明如何实现无需信任的跨域消息传递 | FeiDan</title>
+  <meta name="keywords" content=" AltLayer ">
+  <meta name="description" content="欺诈证明如何实现无需信任的跨域消息传递 | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="如果加载不出图片，请搭梯子则可查看图片。 个人简介FeiDan Web3 爱好者 联系方式FeiDan Discord:FeiDan#9657">
 <meta property="og:type" content="website">
@@ -749,24 +749,39 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-欺诈证明如何实现无需信任的跨域消息传递" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">关于</h1>
+        <h1 class="article-title">欺诈证明如何实现无需信任的跨域消息传递</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="AltLayer">AltLayer</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">AltLayer</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-11 14:53:10'>2022-10-11 12:31</time>
+            发布时间 : <time class="date" title='最后更新: 2023-05-09 22:23:22'>2023-05-09 22:21</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:35</span>
+        <span>字数:1.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -785,7 +800,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B"><span class="toc-text">个人简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F"><span class="toc-text">联系方式</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -801,11 +816,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>如果加载不出图片，请搭梯子则可查看图片。</strong></p>
-<h3 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h3><p>FeiDan</p>
-<p>Web3 爱好者</p>
-<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p><a target="_blank" rel="noopener" href="https://twitter.com/newssssyyyy">FeiDan</a></p>
-<p>Discord:FeiDan#9657</p>
+        <p><img src="https://miro.medium.com/v2/resize:fit:700/1*ie4dmOm9pBf0IvlPXdAbgw.png" alt="img"></p>
+<p>在过去的几年里，区块链专家和爱好者一直在争论侧链、汇总和 L2 之间的区别。核心论点是，只有当系统从底层 L1 中“获得安全性”时，它才应该被称为 L2 或汇总。这引发了关于从链中获得安全性的实际含义的进一步争论。在这篇文章中，我们讨论了 optimistic rollup 设计以及底层链如何验证 rollup 的正确性，从而允许在 rollup 和底层链之间进行无信任的跨域消息传递。</p>
+<p><strong>主权与智能合约汇总</strong></p>
+<p>根据与底层链的连接程度，有不同类型的汇总设计。让我们深入研究几个例子。</p>
+<ul>
+<li><strong>Sovereign rollups</strong>仅将底层链用于数据可用性和交易排序。主权汇总<strong>不需要外部网络（例如 L1）</strong>来验证汇总的正确性。由于在这种情况下不需要 L1，或者在某些情况下甚至能够不信任地验证主权汇总的状态，因此 L1 无法独立验证来自汇总的任何类似桥接的消息。例如，L1 不能不信任地允许解锁 L1 上的资产，仅仅因为汇总是这样说的。</li>
+<li>相比之下，Optimism 和 Arbitrum 等<strong>智能合约汇总</strong>确实<em>允许以太坊验证者通过通常称为</em>验证桥的*方式独立验证汇总状态的正确性。例如，当用户希望将资产从汇总中提取到以太坊上时，以太坊网络验证者需要确信提取请求是有效的并且可以在以太坊上释放资金。</li>
+</ul>
+<p><strong>乐观汇总设计及其验证过程</strong></p>
+<p>要了解欺诈证明，我们必须首先了解 optimistic rollups 的工作原理。optimistic rollup 有两个主要的网络参与者：<em>排序器</em>和<em>验证器</em>。</p>
+<ul>
+<li>排序<strong>器</strong>负责聚合交易，对它们进行排序并将交易数据发布到提供数据可用性和最终排序的以太坊上；和</li>
+<li><strong>验证器</strong>读取交易数据、执行交易、生成汇总的新全局状态并在以太坊上提交状态。</li>
+</ul>
+<p>如上所述，<a target="_blank" rel="noopener" href="https://arbitrum.io/">Arbitrum</a>和<a target="_blank" rel="noopener" href="https://www.optimism.io/">Optimism</a>并未设计为 sovereign rollups，因此，以太坊网络应该能够去信任地验证 rollup 状态的有效性。事实上，乐观汇总设计假设以太坊应该乐观地假设汇总状态总是正确的，除非有人另有声明并且能够证明这一点。然后，以太坊上的合约将裁定所述索赔的正确性，从而使索赔获得以太坊网络的安全性。</p>
+<p>实际上，这是通过允许任何其他验证者挑战发布在以太坊上的状态根的有效性来实现的。“挑战过程”涉及生成最终在以太坊合约中得到验证的<em>欺诈证明。</em></p>
+<p><strong>防欺诈机制</strong></p>
+<p>有两种方法可以生成欺诈证明。</p>
+<ul>
+<li>第一个包括在合约内直接在以太坊上重新执行汇总交易，然后验证结果状态是否与验证者的提交相匹配。虽然这个想法非常简单，但不幸的是，这已被证明是非常低效且不切实际的。</li>
+<li>另一种解决方案由 Arbitrum 提出，称为<em>二分法协议</em>，该协议涉及在合约中执行单个 EVM 指令以证明整批交易的无效性。</li>
+</ul>
+<p><strong>鉴于二分协议的实际好处，它已成为当今欺诈证明的首选方法。</strong></p>
+<p><strong>野外防欺诈实施</strong></p>
+<p>现在应该很清楚，如果没有有效的欺诈证明实施，以太坊就无法去信任地验证汇总的状态，这意味着人们无法在汇总和底层链之间进行去信任的跨域消息传递。因此，不实施欺诈证明的智能合约汇总与仅使用以太坊来满足其数据可用性和订购需求的主权汇总并没有太大区别。</p>
+<p>虽然有许多 optimistic rollups 的实现，例如 Arbitrum、Optimism、<a target="_blank" rel="noopener" href="https://www.metis.io/">Metis</a>等，但 Arbitrum 是迄今为止唯一实现了欺诈证明的。</p>
+<p><strong>AltLayer 在其汇总解决方案中实施欺诈证明</strong></p>
+<p><strong>这在今天发生了变化</strong>。我们很高兴地宣布，AltLayer 已经使用二分协议实现了欺诈证明——这是一种解决 L1 争议的有效方法。</p>
+<p><strong>我们实施的欺诈证明是独一无二的，可以集成到通过 AltLayer 的Rollups-as-a-Service</strong>产品启动的任何汇总中。</p>
+<p>我们将很快发布一篇后续文章，其中我们将概述 AltLayer 欺诈证明的设计原则，以及它的实施如何与我们的汇总即服务产品完美契合。当心这个！</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
