@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>构造函数和修饰器 | FeiDan</title>
-  <meta name="keywords" content=" Solidity ">
-  <meta name="description" content="构造函数和修饰器 | FeiDan">
+  <title>Beacon Layer 简介：用于以太坊的 Enshrined Rollup 中间层 | FeiDan</title>
+  <meta name="keywords" content=" AltLayer ">
+  <meta name="description" content="Beacon Layer 简介：用于以太坊的 Enshrined Rollup 中间层 | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="前言 最近，以太坊 rollup 社区围绕什么真正定义了 Arbitrum、Optimism、ZKSync 等经典汇总进行了激烈的辩论。 今天的 Rollups 作为链下交易执行者运行，并在 Rollup 和以太坊之间提供了一个“本地桥梁”。我们称这种原生桥为供奉桥。该桥允许用户锁定源自以太坊的资产，并在 rollup 上铸造等效的包装资产；反过来，当桥确信包装资产已在汇总上被销毁时，解锁源自以">
 <meta property="og:type" content="article">
@@ -770,9 +770,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-构造函数和修饰器" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Beacon Layer 简介：用于以太坊的 Enshrined Rollup 中间层" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">构造函数和修饰器</h1>
+        <h1 class="article-title">Beacon Layer 简介：用于以太坊的 Enshrined Rollup 中间层</h1>
     
     <div class="article-meta">
         
@@ -782,7 +782,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Solidity">Solidity</a>
+            <a  data-rel="AltLayer">AltLayer</a>
             
         </span>
         
@@ -790,19 +790,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">Solidity</a>
+            <a class="color4">AltLayer</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-17 14:59:11'>2022-10-17 14:17</time>
+            发布时间 : <time class="date" title='最后更新: 2023-05-31 20:27:01'>2023-05-31 20:25</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:529</span>
+        <span>字数:2.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -821,7 +821,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E5%99%A8"><span class="toc-text">修饰器</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%A1%E6%A0%87%E5%B1%82%EF%BC%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84-Enshrined-Rollup-%E4%B8%AD%E9%97%B4%E5%B1%82"><span class="toc-text">信标层：以太坊的 Enshrined Rollup 中间层</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -837,38 +837,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a><strong>构造函数</strong></h2><p><strong>构造函数（<code>constructor</code>）是一种特殊的函数，每个合约可以定义一个，并在部署合约的时候自动运行一次。它可以用来初始化合约的一些参数，例如初始化合约的<code>owner</code>地址：</strong></p>
-<pre><code class="solidity">   address owner; // 定义owner变量
-
-   // 构造函数
-   constructor() &#123;
-      owner = msg.sender; // 在部署合约的时候，将owner设置为部署者的地址
-   &#125;
-</code></pre>
-<p><strong>构造函数在不同的solidity版本中的语法并不一致，在Solidity 0.4.22之前，构造函数不使用 <code>constructor</code> 而是使用与合约名同名的函数作为构造函数而使用，由于这种旧写法容易使开发者在书写时发生疏漏（例如合约名叫 <code>Parents</code>，构造函数名写成 <code>parents</code>），使得构造函数变成普通函数，引发漏洞，所以0.4.22版本及之后，采用了全新的 <code>constructor</code> 写法。</strong></p>
-<p><strong>构造函数的旧写法代码示例：</strong></p>
-<pre><code class="solidity">pragma solidity =0.4.21;
-contract Parents &#123;
-    // 与合约名Parents同名的函数就是构造函数
-    function Parents () public &#123;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="修饰器"><a href="#修饰器" class="headerlink" title="修饰器"></a>修饰器</h2><p><strong>修饰器（<code>modifier</code>）是<code>solidity</code>特有的语法，类似于面向对象编程中的<code>decorator</code>.</strong></p>
-<p><strong>声明函数拥有的特性，并减少代码冗余。它就像钢铁侠的智能盔甲，穿上它的函数会带有某些特定的行为。<code>modifier</code>的主要使用场景是运行函数前的检查，例如地址，变量，余额等。</strong></p>
-<pre><code class="solidity">   // 定义modifier
-   modifier onlyOwner &#123;
-      require(msg.sender == owner); // 检查调用者是否为owner地址
-      _; // 如果是的话，继续运行函数主体；否则报错并revert交易
-   &#125;
-</code></pre>
-<pre><code class="solidity">    //代有onlyOwner修饰符的函数只能被owner地址调用，比如下面这个例子：
-
-   function changeOwner(address _newOwner) external onlyOwner&#123;
-      owner = _newOwner; // 只有owner地址运行这个函数，并改变owner
-   &#125;
-</code></pre>
-<p>我们定义了一个<code>changeOwner</code>函数，运行他可以改变合约的<code>owner</code>，但是由于<code>onlyOwner</code>修饰符的存在，只有原先的<code>owner</code>可以调用，别人调用就会报错。这也是最常用的控制智能合约权限的方法。</p>
+        <p><img src="https://miro.medium.com/v2/resize:fit:700/1*Tfg1FmTwzQVeZCJhe-TU_A.jpeg" alt="img"></p>
+<p><strong>前言</strong></p>
+<p>最近，以太坊 rollup 社区围绕什么真正定义了 Arbitrum、Optimism、ZKSync 等经典汇总进行了激烈的辩论。</p>
+<p>今天的 Rollups 作为链下交易执行者运行，并在 Rollup 和以太坊之间提供了一个“本地桥梁”。我们称这种原生桥为<strong>供奉桥</strong>。该桥允许用户锁定源自以太坊的资产，并在 rollup 上铸造等效的包装资产；反过来，当桥确信包装资产已在汇总上被销毁时，解锁源自以太坊的资产。供奉的桥梁是信任最小化的，因为它依赖于欺诈证明或有效性证明来确保汇总状态有效。</p>
+<p>争论的焦点是经典汇总的规范状态是否由以太坊上的桥接合约定义，该桥接合约跟踪汇总状态，验证欺诈证明（或 ZK 汇总的有效性证明）并允许将资产从汇总提取到以太坊。或者，是否由 rollup 全节点自己定义，观察 rollup 运营商在以太坊上发布的交易数据，然后通过应用状态转换函数重新执行它们（或检查 ZK rollups 的有效性证明），最后验证是否计算出的状态与汇总运算符建议的状态相匹配。</p>
+<p>这是一个重要的区别，因为如果 rollup 验证节点自己决定规范的 rollup 状态，那么所载的桥接合约就像其他 rollup 验证节点一样只是 rollup 状态的另一个观察者。在这种情况下，rollup 的规范状态由社会决定，而不是由以太坊上的桥接合约决定。</p>
+<p>因此，“真相来源”之间的这种区别意味着人们可以构建非供奉的桥梁，在后台运行汇总验证节点，并允许用户立即从汇总中提取到以太坊，而无需用户等待 7 天的提取期optimistic rollups 的典型桥接。而他们能够允许即时提现的原因很简单，因为由非供奉桥运行的汇总验证节点可以独立地确信，即使以后有人挑战提现，那么挑战也不会成功。</p>
+<p>在 AltLayer，我们已经考虑这个话题 1.5 年多了，尽管对于通过我们的汇总即服务 (RaaS) 产品启动的汇总，我们处于一个更加封闭的循环中。</p>
+<p><strong>这篇文章通过支持我们的 RaaS 产品的网络设计来解释我们在这场辩论中的立场。</strong></p>
+<h1 id="信标层：以太坊的-Enshrined-Rollup-中间层"><a href="#信标层：以太坊的-Enshrined-Rollup-中间层" class="headerlink" title="信标层：以太坊的 Enshrined Rollup 中间层"></a><strong>信标层：以太坊的 Enshrined Rollup 中间层</strong></h1><p>对于 vanilla RaaS 产品，您可以使用 SDK 或仪表板来启动使用以太坊作为数据可用性层的汇总。而且，模块化堆栈看起来像：</p>
+<blockquote>
+<p><strong>Rollup（执行）-&gt; 以太坊（数据可用性）-&gt; 以太坊（结算）</strong></p>
+</blockquote>
+<p>AltLayer 的 RaaS 网络架构略有不同：</p>
+<blockquote>
+<p><strong>Rollup（执行）-&gt; Beacon Layer（Enshrined Interlayer）-&gt; Ethereum（数据可用性）-&gt; Ethereum（结算）</strong></p>
+</blockquote>
+<p>Beacon Layer 是执行层和数据可用性层之间的<em>中间层，所有通过 AltLayer 实例化的 rollups 都供奉在 Beacon Layer 中。</em>术语“enshrined”指的是通过 AltLayer 启动的任何 rollup 的状态都可以由 Beacon 层直接验证，而且因为每个 rollup 在 Beacon 层上都有一个 enshrined 桥。此外，作为执行和数据可用性堆栈之间的中间层，信标层提供以下主要服务：</p>
+<ol>
+<li><strong>共享排序层</strong></li>
+<li><strong>验证层</strong></li>
+<li><strong>质押&#x2F;削减层</strong></li>
+<li><strong>互操作层</strong></li>
+<li><strong>可升级层</strong></li>
+<li><strong>社会共识层</strong></li>
+</ol>
+<p>我们将在下面更详细地解释这些服务。</p>
+<p><strong>1.共享测序层：</strong>信标层是一个网络，其中有兴趣充当汇总的定序器的节点会注册他们的兴趣。当最终用户通过 AltLayer 的 RaaS 平台提出汇总请求时，用户指定运行汇总所需的最小和最大排序器数量以及每个排序器所需的最小经济抵押品数量和代币列表，其中包含抵押品可能来自。然后将抵押品放在信标层上，然后用于削减任何行为不端的定序器。一旦所需数量的排序者投入了最低限度的抵押品，这些排序者就可以开始为汇总交易排序。</p>
+<p><strong>2.验证层：</strong>如前言所述，rollup 的验证节点本身可以决定规范的 rollup 状态。然而，这意味着每个不想等待 7 天取款期的客户都需要运行自己的全节点汇总验证器。对于许多专门用于乐观汇总的轻量级客户端来说，这可能不是理想的选择。因此，信标层充当所有汇总的内在验证层。由于信标层了解所有汇总及其各自的状态转换功能，因此它具有验证新提交的汇总状态的全部能力。为此，信标层由验证器网络组成，验证器定期验证所有汇总中提出的所有新状态。与汇总排序器提供的预确认不同，</p>
+<p><strong>3. Staking&#x2F;Slashing Layer：</strong>由于共享排序和验证都假设一个节点网络，需要确保网络没有女巫，因此信标层带有一个staking机制，要求每个网络参与者存入足够的金额的经济抵押品可以在检测到恶意行为并得到证实的情况下大幅削减。</p>
+<p><strong>4. 互操作层：</strong>如果 RaaS 提供者有许多实例化的 rollups，那么为了在 rollups 之间实现互操作性，通常会在 DA 层上构建一个 enshrined bridge，每个 rollup 一个。另一种方法是在使用相同 DA 层的每两个汇总之间建立一个桥接。</p>
+<p>对于 AltLayer，我们采用了第三种设计，利用信标链作为桥接中心来协调所有汇总。在这个设计中，每个 rollup 都会在 Beacon 层中建立一个桥梁，然后作为底层 DA 层顶部的共享中间“结算层”。通过为这个共享的中间层设置一个桥接，rollups 得到一个直接的信任最小化的桥接。此外，这还会产生与其他汇总的间接信任最小化桥接，这些汇总也包含与信标层的桥梁。本质上，作为一个通用的结算层，Beacon Layer 充当了一个桥接枢纽，促进了 rollup 之间的资产转移，也促进了一般的消息传递。它还可以帮助检测汇总中的任何无效状态转换，甚至可以为验证欺诈证明提供争议解决方案。</p>
+<p><strong>5. 可升级层：</strong>如前言所述，当今大多数汇总都有一个通往以太坊的神圣桥梁。该桥跟踪汇总状态，验证欺诈证明（或 ZK 汇总的有效性证明）并允许将资产从汇总中提取到以太坊。然而，这些供奉的桥梁大多是通过多重签名钱包控制的，因此桥梁有能力通过恶意升级任意窃取用户的资金。</p>
+<p>信标层充当一个社交层，用于升级它所包含的所有汇总。注册与信标层汇总验证器一起运行汇总的排序器可以在社交上分叉汇总，无论以太坊上的桥接合约是否升级。回想一下，与所有其他汇总验证器一样，供奉的桥梁只是汇总的观察者。</p>
+<p>信标层上不同意分叉的定序器和汇总验证器可能会决定不支持新分叉。</p>
+<p><strong>6. 社会共识层：</strong>信标层也可以充当治理层，信标层节点可以运行链上治理机制来批准对汇总逻辑的升级，从而代表社区升级任何桥接合约在 Beacon 层或 DA 层。</p>
+<p><strong>结论</strong></p>
+<p>这篇文章介绍了 AltLayer 网络架构的一个关键组件，称为<strong>信标层</strong>，它充当通过 AltLayer 的汇总即服务平台启动的不同汇总和底层数据可用性层（如以太坊）之间的通用中间层。本系列的下一篇博文将更详细地解释信标层的不同特性。敬请关注！</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
