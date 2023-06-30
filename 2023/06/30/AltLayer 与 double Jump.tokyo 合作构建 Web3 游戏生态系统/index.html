@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>函数输出 | FeiDan</title>
-  <meta name="keywords" content=" Solidity ">
-  <meta name="description" content="函数输出 | FeiDan">
+  <title>AltLayer 与 double Jump.tokyo 合作构建 Web3 游戏生态系统 | FeiDan</title>
+  <meta name="keywords" content=" AltLayer ">
+  <meta name="description" content="AltLayer 与 double Jump.tokyo 合作构建 Web3 游戏生态系统 | FeiDan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Web3 bulid">
 <meta property="og:type" content="website">
@@ -785,9 +785,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-函数输出" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-AltLayer 与 double Jump.tokyo 合作构建 Web3 游戏生态系统" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">函数输出</h1>
+        <h1 class="article-title">AltLayer 与 double Jump.tokyo 合作构建 Web3 游戏生态系统</h1>
     
     <div class="article-meta">
         
@@ -797,9 +797,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Solidity">Solidity</a> > 
-            
-            <a  data-rel="Solidity&lt;---&gt;函数">函数</a>
+            <a  data-rel="AltLayer">AltLayer</a>
             
         </span>
         
@@ -807,19 +805,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">Solidity</a>
+            <a class="color4">AltLayer</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-10-16 16:22:33'>2022-10-16 13:10</time>
+            发布时间 : <time class="date" title='最后更新: 2023-06-30 18:06:12'>2023-06-30 18:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:403</span>
+        <span>字数:684</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -838,7 +836,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC-return%E5%92%8Creturns"><span class="toc-text">返回值 return和returns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E5%BC%8F%E8%B5%8B%E5%80%BC"><span class="toc-text">解构式赋值</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -854,69 +852,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="返回值-return和returns"><a href="#返回值-return和returns" class="headerlink" title="返回值 return和returns"></a><strong>返回值 return和returns</strong></h2><p><strong><code>Solidity</code>有两个关键字与函数输出相关：<code>return</code>和<code>returns</code>，他们的区别在于：</strong></p>
-<ul>
-<li><p><strong><code>returns</code>加在函数名后面，用于声明返回的变量类型及变量名；</strong></p>
-</li>
-<li><p><strong><code>return</code>用于函数主体中，返回指定的变量。</strong></p>
-</li>
-</ul>
-<pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract HelloWeb3&#123;
-    //
-    function returnMultiple() public pure returns(uint256, bool, uint256[3] memory)&#123;
-            return(1, true, [uint256(1),2,5]);
-        &#125;
-
-    // 命名式返回
-    function returnNamed() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
-        _number = 2;
-        _bool = false; 
-        _array = [uint256(3),2,1];
-    &#125;        
-    // 命名式返回，依然支持return
-    function returnNamed2() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
-        return(1, true, [uint256(1),2,5]);
-    &#125;
-    
-&#125;
-</code></pre>
-<h2 id="解构式赋值"><a href="#解构式赋值" class="headerlink" title="解构式赋值"></a>解构式赋值</h2><p><strong><code>solidity</code>使用解构式赋值的规则，支持读取函数的全部或部分返回值。</strong></p>
-<p><strong>读取所有返回值：声明变量，并且将要赋值的变量用<code>,</code>隔开，按顺序排列。</strong></p>
-<pre><code class="solidity">// SPDX-License-Identifier: MIT
-
-//声明solidity版本 这行代码意思是源文件将不允许小于 0.8.4 版本或大于等于 0.9.0 版本的编译器编译
-pragma solidity ^0.8.4; 
-
-contract HelloWeb3&#123;
-
-
-    // 命名式返回
-    function returnNamed() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
-        _number = 2;
-        _bool = false; 
-        _array = [uint256(3),2,1];
-    &#125;        
-    // 命名式返回，依然支持return
-    function returnNamed2() public pure returns(uint256 _number, bool _bool, uint256[3] memory _array)&#123;
-        return(1, true, [uint256(1),2,5]);
-    &#125;
-
-    function readNamed() public pure&#123;
-        uint256 _number;
-        bool _bool;
-        uint256[3] memory _array;
-        (_number, _bool, _array) = returnNamed();
-
-        //或者只读取一个值  (, _bool, ) = returnNamed();
-
-    &#125;
-&#125;
-</code></pre>
+        <p><img src="https://miro.medium.com/v2/resize:fit:700/0*kjCvfWJTxIcaq8n-.jpeg" alt="img"></p>
+<p>我们 很高兴宣布与日本领先的区块链游戏和 NFT 初创公司 <a target="_blank" rel="noopener" href="https://www.doublejump.tokyo/en">Double Jump.tokyo, Inc. 建立合作伙伴关系。</a></p>
+<p>此次合作将把 AltLayer 的 rollup 技术堆栈集成到 <a target="_blank" rel="noopener" href="https://www.oasys.games/">Oasys</a> 中 — — Oasys 是一个由一组开发人员（主要是 double Jump.tokyo）构建的游戏开发优化区块链架构。具体来说，我们的临时汇总功能以及持久汇总产品将用于构建更具吸引力和更强大的基于 Web3 的游戏。</p>
+<p>AltLayer 创始人兼首席执行官贾瑶琪博士表示：“《double Jump.tokyo》已经积累了大量粉丝，并建立了一个跨越国家和边界的忠诚社区。随着其与<a target="_blank" rel="noopener" href="https://www.sega.com/">世嘉</a>和 <a target="_blank" rel="noopener" href="https://www.oasys.games/">Oasys</a> 的大型项目合作，通过数字收藏品等将战略卡牌游戏***《三国志大战》 IP 引入 Web3，这一合作进一步加强。***随着这些项目 double Jump.tokyo 的全球粉丝基础，我们看到了利用我们的闪存层功能改变开发人员和最终用户体验的机会。此外，我们希望让日本市场进一步认识到我们这样的弹性扩展解决方案的价值 — — 日本市场以其创新者和创造者而闻名。”</p>
+<p>double Jump.tokyo 首席执行官 Hironobu 表示：“随着游戏巨头 SEGA 进军区块链领域，我相信我们将看到趋势发生重大转变，包括本地游戏玩家更多地参与尝试 Web3 技术。迎合这个 <a target="_blank" rel="noopener" href="https://www.marketsandmarkets.com/Market-Reports/blockchain-gaming-market-167926225.html">40 亿美元市场</a>的一个主要部分包括调整技术基础设施，以满足全新参与者不断增长的需求。L2 提供商构建易于部署、使用或集成到业务计划和活动中的附加组件将是无价的。AltLayer 的产品目前正在并行运行数千个闪存层，这似乎非常适合我们。”</p>
+<p>Double Jump.tokyo 在游戏社区中拥有庞大的粉丝群和积极的反响。他们的游戏因其细节、艺术性和提供沉浸式游戏体验的能力而受到称赞。<a target="_blank" rel="noopener" href="https://www.oasys.games/">double Jump.tokyo 对 Oasys</a> 区块链的贡献对于构建著名且广泛玩的游戏至关重要。</p>
+<p>在其 RaaS 保护下，AltLayer 为游戏开发人员提供两种类型的汇总：临时汇总和持久汇总。临时汇总非常适合在短时间内产生需求激增的事件驱动应用程序，例如迷你游戏或回合制的游戏，而持久汇总最适合生命周期较长的游戏。AltLayer 的 Rollups 此前曾用于托管《黑暗森林》等流行的完全链上游戏，每天吸引 25 万笔交易。</p>
+<hr>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
